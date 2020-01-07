@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<style>
+			html,
+			body {
+				border: 0;
+				margin: 0;
+				overflow: hidden;
+				background-color: white;
+				font: 16px 'Courier New', Courier, monospace;
+			}
+
+			canvas {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+
+			.text {
+				z-index: 10000;
+				color: black;
+				position: absolute;
+
+				top: 20vh;
+				left: 20vw;
+				user-select: none;
+			}
+
+			.fancyLink {
+				text-decoration: none;
+				color: blue;
+				transition: 0.5s;
+			}
+
+			.fancyLink:hover {
+				color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+		<div class="text">
+			<p>hi welcome my name is johnny ray alt</p>
+			<p>if you wanna check me out check these out</p>
+			<p>things i code <a class="fancyLink" href="https://github.com/johnnyrayalt" target="_blank">github</a></p>
+			<p>
+				chit chat
+				<a class="fancyLink" href="mailto:johnnyrayalt@gmail.com" target="_blank">heres my email</a>
+			</p>
+			<p>
+				professional stuff
+				<a class="fancyLink" href="https://www.linkedin.com/in/johnnyrayalt/" target="_blank">linkedin</a>
+			</p>
+			<p>this website will be done soon!</p>
+		</div>
+		<script src="./index.tsx"></script>
+	</body>
+</html>
