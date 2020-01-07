@@ -1,5 +1,5 @@
 import hoistNonReactStatics from 'hoist-non-react-statics';
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
 export interface IState {
 	time: number;
@@ -7,19 +7,18 @@ export interface IState {
 }
 
 export default (C: any, { refreshRate = 60 }: { refreshRate?: number } = {}): any => {
-	class TL extends PureComponent {
-		static displayName = `timeLoop(${C.displayName || C.name || ''})`;
+	class TL extends Component {
 		state: IState = {
 			time: 0,
 			tick: 0,
 		};
 		_r: any;
+
 		componentDidMount() {
 			let startTime: number, lastTime: number;
 			let interval = 1000 / refreshRate;
 			lastTime = -interval;
 			const loop = (t: number) => {
-				this._r = requestAnimationFrame(loop.bind(this));
 				if (!startTime) startTime = t;
 				if (t - lastTime > interval) {
 					lastTime = t;
@@ -28,6 +27,7 @@ export default (C: any, { refreshRate = 60 }: { refreshRate?: number } = {}): an
 						tick: this.state.tick + 1,
 					});
 				}
+				this._r = requestAnimationFrame(loop.bind(this));
 			};
 			this._r = requestAnimationFrame(loop.bind(this));
 		}

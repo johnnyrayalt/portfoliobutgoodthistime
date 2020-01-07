@@ -1,9 +1,12 @@
+// This is very not good code. make as temporary as possible
+// ditch gl-react. its very poorly optimized and lacks key functionality
 import { LinearCopy, Node, Shaders } from 'gl-react';
 import { Surface } from 'gl-react-dom';
 import React, { Component, PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 // @ts-ignore // no d.ts file
 import JSON2D from 'react-json2d';
+import { Resize } from '~Resize';
 // @ts-ignore // imported via custom parcel-plugin
 import FragShader from './fragShader.frag';
 import timeLoop from './timeLoop';
@@ -18,6 +21,7 @@ interface IAnimated {
 	t: number;
 	time: number;
 }
+
 class Animated extends Component<IAnimated> {
 	render() {
 		const { children: t, time } = this.props;
@@ -38,11 +42,11 @@ class Animated extends Component<IAnimated> {
 }
 
 const AnimatedLoop = timeLoop(Animated);
+const resize = new Resize();
 
-const size = { width: window.innerWidth, height: window.innerHeight };
 const font = "bold 36px 'Courier New', Courier, monospace";
 const lineHeight = 40;
-const padding = 10;
+const padding = 500;
 
 interface IText {
 	text: string;
@@ -53,14 +57,14 @@ class Text extends PureComponent<IText> {
 		const { text } = this.props;
 		return (
 			<LinearCopy>
-				<JSON2D {...size}>
+				<JSON2D {...resize}>
 					{{
-						background: '#FFF',
-						size: [window.innerWidth, window.innerHeight],
+						background: '#000',
+						size: [resize.width, resize.height],
 						draws: [
 							{
 								textBaseline: 'top',
-								fillStyle: '#000',
+								fillStyle: '#fff',
 								font,
 							},
 							['fillText', text, padding, padding, lineHeight],
@@ -76,7 +80,7 @@ export default class Main extends Component<IText> {
 	render() {
 		const { text } = this.props;
 		return (
-			<Surface {...size}>
+			<Surface width={resize.width} height={resize.height}>
 				<AnimatedLoop>
 					<Text text={text} />
 				</AnimatedLoop>
