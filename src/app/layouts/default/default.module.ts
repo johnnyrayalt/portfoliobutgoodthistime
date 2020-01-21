@@ -1,3 +1,4 @@
+import { WebProjectGridComponent } from './../../modules/web-project-grid/web-project-grid.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -8,7 +9,7 @@ import { ProjectsComponent } from '@app/modules/projects/projects.component';
 import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
-	declarations: [DefaultComponent, ProjectsComponent, AboutComponent],
+	declarations: [DefaultComponent, ProjectsComponent, AboutComponent, WebProjectGridComponent],
 	imports: [CommonModule, RouterModule, FlexLayoutModule, SharedModule],
 })
 export class DefaultModule {}
