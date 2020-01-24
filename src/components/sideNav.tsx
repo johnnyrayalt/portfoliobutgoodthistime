@@ -7,7 +7,7 @@ export interface ISideNav {
 }
 
 class SideNav extends React.Component<{}, ISideNav> {
-	constructor(props: any) {
+	constructor(props: Readonly<{}>) {
 		super(props);
 		this.state = {
 			expanded: false,
@@ -35,9 +35,9 @@ class SideNav extends React.Component<{}, ISideNav> {
 					<nav>
 						<ul>
 							<li>
-								<NavLink id="projectsLink" to="/projects" onClick={this.handleChangeExpandedState} className="link">
+								<button id="projectsLink" onClick={this.handleChangeExpandedState} className="link btn">
 									Projects
-								</NavLink>
+								</button>
 								{this.state.expanded && this.props.children}
 							</li>
 							<li>
