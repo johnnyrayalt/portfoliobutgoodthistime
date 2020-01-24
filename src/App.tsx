@@ -19,7 +19,7 @@ const App: React.FC = () => {
 					</ul>
 				</SideNav>
 			</div>
-			<div className="body-content-wrapper">
+			<div id="body-content-wrapper">
 				<Views />
 			</div>
 		</div>
