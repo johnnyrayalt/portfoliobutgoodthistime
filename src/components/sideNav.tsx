@@ -32,7 +32,7 @@ class SideNav extends React.Component<{}, ISideNavState> {
 					<nav>
 						<ul>
 							<li>
-								<button id="projectsLink" onClick={this.handleChangeExpandedState} className="link btn">
+								<button onClick={this.handleChangeExpandedState} className="link btn">
 									Projects
 								</button>
 								{this.state.expanded && this.props.children}
@@ -44,12 +44,12 @@ class SideNav extends React.Component<{}, ISideNavState> {
 							</li>
 							<li>
 								<a className="link" href="https://github.com/johnnyrayalt" rel="noopener noreferrer" target="_blank">
-									Github
+									&#x02197; Github
 								</a>
 							</li>
 							<li>
 								<a className="link" href="mailto:johnnyrayalt@gmail.com">
-									Contact
+									&#x02197; Contact
 								</a>
 							</li>
 						</ul>
