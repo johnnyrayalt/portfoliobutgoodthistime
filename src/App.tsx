@@ -7,7 +7,7 @@ import Routes from './Routes';
 const App: React.FC = () => {
 	return (
 		<div className="App">
-			<div id="sideNavWrapper">
+			<div id="side-nav-wrapper">
 				<SideNav>
 					<ul>
 						<li>
@@ -18,6 +18,8 @@ const App: React.FC = () => {
 						</li>
 					</ul>
 				</SideNav>
+			</div>
+			<div className="body-content-wrapper">
 				<Routes />
 			</div>
 		</div>
