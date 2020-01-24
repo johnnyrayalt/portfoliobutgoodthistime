@@ -1,4 +1,4 @@
 export interface ILink {
-	parent: string;
-	child: string;
+	readonly parent: string;
+	readonly child: string;
 }

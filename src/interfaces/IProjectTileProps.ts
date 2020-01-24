@@ -1,5 +1,5 @@
 export interface IProjectTileProps {
-	name: string;
-	link: string;
-	image: string;
+	readonly name: string;
+	readonly link: string;
+	readonly image: string;
 }

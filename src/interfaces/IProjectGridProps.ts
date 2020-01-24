@@ -1,8 +1,6 @@
+import { IProjectTileProps } from './IProjectTileProps';
+
 export interface IProjectGridProps {
-	type: 'web' | 'art';
-	projects: {
-		name: string;
-		link: string;
-		image: string;
-	}[];
+	readonly type: 'web' | 'art';
+	readonly projects: IProjectTileProps[];
 }
