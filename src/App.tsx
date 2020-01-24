@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import SideNav from './components/SideNav';
 import SubNavLink from './components/SubNavLink';
-import Routes from './Routes';
+import Views from './views/Views';
 
 const App: React.FC = () => {
 	return (
@@ -20,7 +20,7 @@ const App: React.FC = () => {
 				</SideNav>
 			</div>
 			<div className="body-content-wrapper">
-				<Routes />
+				<Views />
 			</div>
 		</div>
 	);

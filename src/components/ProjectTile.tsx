@@ -1,11 +1,6 @@
 import React from 'react';
+import { IProjectTileProps } from '../interfaces/IProjectTileProps';
 import './ProjectTileStyles.scss';
-
-export interface IProjectTileProps {
-	name: string;
-	link: string;
-	image: string;
-}
 
 const ProjectTile = (props: IProjectTileProps) => {
 	return (
