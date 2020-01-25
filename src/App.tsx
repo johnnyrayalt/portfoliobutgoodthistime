@@ -3,6 +3,11 @@ import './App.scss';
 import SideNav from './components/SideNav';
 import SubNavLink from './components/SubNavLink';
 import Views from './views/Views';
+import { AWSService } from './services/AWS/AwsService';
+import creds from './config.json';
+
+const getImages = new AWSService(creds).getImages();
+console.log(getImages);
 
 const App: React.FC = () => {
 	return (
