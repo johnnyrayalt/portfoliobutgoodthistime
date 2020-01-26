@@ -6,7 +6,7 @@ import Views from './views/Views';
 import { AWSService } from './services/AWS/AwsService';
 import creds from './config.json';
 
-const getImages = new AWSService(creds).getImages();
+const getImages = new AWSService(creds).getImages(['web', 'art']);
 console.log(getImages);
 
 const App: React.FC = () => {

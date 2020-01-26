@@ -30,19 +30,18 @@ export class AWSService {
 		});
 	}
 
-	public getImages = () => {
-		const params = { Bucket: this.bucketName, Delimiter: '/' };
-		this.s3.listObjects(params, (err, data) => {
-			if (err) {
-				throw new Error(`There was an error listing your albums:${err.message}`);
-			}
+	public getImages = (albumNames: string[]) => {
+		const params = {
+			Bucket: this.bucketName,
+		};
 
-			const albums = data.CommonPrefixes?.map(commonPrefix => {
-				const prefix = commonPrefix.Prefix as string;
-				const albumName = decodeURIComponent(prefix?.replace('/', ''));
-				return albumName;
-			});
-			console.log(albums);
+		this.s3.listObjectsV2(params, (err, data) => {
+			if (err) {
+				throw new Error(`Error at listObjectsV2: ${err.message}`);
+			}
+			console.log(data);
 		});
 	};
+
+	public viewAlbums = () => {};
 }
