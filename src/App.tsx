@@ -6,8 +6,8 @@ import React from 'react';
 import { AWSService } from 'services/AWS/AwsService';
 import Views from 'views/Views';
 
-const awsService = new AWSService(creds);
-const App = () => {
+const App = (): JSX.Element => {
+	const awsService: AWSService = new AWSService(creds);
 	const images = awsService.getImageUrlMaps();
 
 	return (

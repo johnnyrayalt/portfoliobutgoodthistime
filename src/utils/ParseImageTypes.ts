@@ -1,9 +1,10 @@
-import { Group } from './../types/GroupType';
-import { IImageUrlMapping } from '../interfaces/IImageUrlMapping';
-import { IProjectGrid } from 'views/Projects';
+import { IImageUrlMapping } from 'interfaces/IImageUrlMapping';
+import { IProject } from 'interfaces/IProject';
+import { IProjectGrid } from 'interfaces/IProjectGrid';
+import { Group } from 'types/GroupType';
 
 export class ParseImageTypes {
-	public static parseRootType = (images: IImageUrlMapping[], type: Group) => {
+	public static parseRootType = (images: IImageUrlMapping[], type: Group): IProject => {
 		const parsedImages: IImageUrlMapping[] = [];
 		const parse = (images: IImageUrlMapping[], letter: string) => {
 			images.forEach(image => {
@@ -32,22 +33,20 @@ export class ParseImageTypes {
 	};
 
 	// this needs to group by project and then sort
-	public static parseProject = (props: any) => {
+	public static parseProject = (props: IProject): IProjectGrid => {
 		const getImagePreviewItems: IImageUrlMapping[] = [];
 
-		props.imagesList.forEach((image: any) => {
+		props.imagesList.forEach((image: IImageUrlMapping): void => {
 			if (image.id.includes('/1.jpg')) {
 				getImagePreviewItems.push(image);
 			}
 		});
 
-		const transform = getImagePreviewItems.map(image => {
-			return { name: image.id, link: image.url, image: image.url };
-		});
-
 		const value: IProjectGrid = {
 			type: 'art',
-			projectsList: transform,
+			projectsList: getImagePreviewItems.map(image => {
+				return { name: image.id, link: image.url, image: image.url };
+			}),
 		};
 
 		return value;

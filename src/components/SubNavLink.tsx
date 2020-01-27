@@ -2,13 +2,14 @@ import { ILink } from 'interfaces/ILink';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SubNavLink = (props: { link: ILink; classNames: string[] }) => {
+const SubNavLink = (props: { link: ILink; classNames: string[] }): JSX.Element => {
 	const parseClassNames = (classNames: string[]): string => {
 		if (!classNames) {
 			return '';
 		}
 
-		let nameString = '';
+		let nameString: string = '';
+
 		for (let name of classNames) {
 			nameString += `${name} `;
 		}
@@ -16,7 +17,7 @@ const SubNavLink = (props: { link: ILink; classNames: string[] }) => {
 		return nameString.trim();
 	};
 
-	const parseString = () => {
+	const parseDisplayString = (): string => {
 		const firstChar: string = props.link.child.charAt(0).toUpperCase();
 		const subString: string = props.link.child.substring(1).toLowerCase();
 
@@ -25,7 +26,7 @@ const SubNavLink = (props: { link: ILink; classNames: string[] }) => {
 
 	return (
 		<NavLink className={parseClassNames(props.classNames)} to={`/${props.link.parent}/${props.link.child}`}>
-			{parseString()}
+			{parseDisplayString()}
 		</NavLink>
 	);
 };

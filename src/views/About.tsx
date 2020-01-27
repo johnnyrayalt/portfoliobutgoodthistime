@@ -1,7 +1,7 @@
 import React from 'react';
 import 'views/AboutStyles.scss';
 
-const About = () => {
+const About: React.FC = (): JSX.Element => {
 	return (
 		<div className="about-text-container">
 			<div className="text">

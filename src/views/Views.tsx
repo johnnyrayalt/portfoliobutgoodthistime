@@ -6,8 +6,7 @@ import Error404 from 'views/Error404';
 import Home from 'views/Home';
 import Projects from 'views/Projects';
 
-const Views = (props: IViewsProps) => {
-	console.log(props.images);
+const Views = (props: IViewsProps): JSX.Element => {
 	return (
 		<>
 			<Switch>

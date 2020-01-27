@@ -1,30 +1,19 @@
-import React from 'react';
-import { Group } from 'types/GroupType';
-import { IImageUrlMapping } from 'interfaces/IImageUrlMapping';
-import { IProjectTileProps } from 'interfaces/IProjectTileProps';
-import { ParseImageTypes } from 'utils/ParseImageTypes';
 import ProjectGrid from 'components/ProjectGrid';
+import { IProject } from 'interfaces/IProject';
+import { IProjectGrid } from 'interfaces/IProjectGrid';
+import React from 'react';
+import { ParseImageTypes } from 'utils/ParseImageTypes';
 
-export interface IProject {
-	type: Group;
-	imagesList: IImageUrlMapping[];
-}
+const Projects = (props: IProject): JSX.Element => {
+	const projectGrid: IProjectGrid = ParseImageTypes.parseProject(
+		ParseImageTypes.parseRootType(props.imagesList, props.type),
+	);
 
-export interface IProjectGrid {
-	type: Group;
-	projectsList: IProjectTileProps[];
-}
-
-class Projects extends React.Component<IProject> {
-	render() {
-		const projects = ParseImageTypes.parseRootType(this.props.imagesList, this.props.type);
-		const projectGrid = ParseImageTypes.parseProject(projects);
-		return (
-			<div>
-				<ProjectGrid {...projectGrid} />
-			</div>
-		);
-	}
-}
+	return (
+		<div>
+			<ProjectGrid {...projectGrid} />
+		</div>
+	);
+};
 
 export default Projects;
