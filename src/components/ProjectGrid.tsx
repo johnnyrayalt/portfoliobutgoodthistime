@@ -1,9 +1,9 @@
-import 'components/ProjectGridStyles.scss';
-import ProjectTile from 'components/ProjectTile';
-import { IProjectGrid } from 'interfaces/IProjectGrid';
-import { IProjectTileProps } from 'interfaces/IProjectTileProps';
 import React from 'react';
 import uuidv1 from 'uuid';
+import { IProjectGrid } from '../interfaces/IProjectGrid';
+import { IProjectTileProps } from '../interfaces/IProjectTileProps';
+import './ProjectGridStyles.scss';
+import ProjectTile from './ProjectTile';
 
 const ProjectGrid = (props: IProjectGrid): JSX.Element => {
 	return (

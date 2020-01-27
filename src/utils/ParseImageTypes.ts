@@ -1,7 +1,7 @@
-import { IImageUrlMapping } from 'interfaces/IImageUrlMapping';
-import { IProject } from 'interfaces/IProject';
-import { IProjectGrid } from 'interfaces/IProjectGrid';
-import { Group } from 'types/GroupType';
+import { IImageUrlMapping } from '../interfaces/IImageUrlMapping';
+import { IProject } from '../interfaces/IProject';
+import { IProjectGrid } from '../interfaces/IProjectGrid';
+import { Group } from '../types/GroupType';
 
 export class ParseImageTypes {
 	public static parseRootType = (images: IImageUrlMapping[], type: Group): IProject => {

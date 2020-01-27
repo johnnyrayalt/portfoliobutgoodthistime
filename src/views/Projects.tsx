@@ -1,8 +1,8 @@
-import ProjectGrid from 'components/ProjectGrid';
-import { IProject } from 'interfaces/IProject';
-import { IProjectGrid } from 'interfaces/IProjectGrid';
 import React from 'react';
-import { ParseImageTypes } from 'utils/ParseImageTypes';
+import ProjectGrid from '../components/ProjectGrid';
+import { IProject } from '../interfaces/IProject';
+import { IProjectGrid } from '../interfaces/IProjectGrid';
+import { ParseImageTypes } from '../utils/ParseImageTypes';
 
 const Projects = (props: IProject): JSX.Element => {
 	const projectGrid: IProjectGrid = ParseImageTypes.parseProject(
