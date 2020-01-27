@@ -1,45 +1,27 @@
-import ProjectGrid from 'components/ProjectGrid';
-import { IProjectGridProps } from 'interfaces/IProjectGridProps';
-import { IProjectStateAndProps } from 'interfaces/IProjectStateAndProps';
 import React from 'react';
+import { Group } from 'types/GroupType';
+import { IImageUrlMapping } from 'interfaces/IImageUrlMapping';
+import { IProjectTileProps } from 'interfaces/IProjectTileProps';
+import { ParseImageTypes } from 'utils/ParseImageTypes';
+import ProjectGrid from 'components/ProjectGrid';
 
-const webProjects: IProjectGridProps = {
-	type: 'web',
-	projects: [
-		{ name: 'Lendjet.com', link: 'https://lendjet.com/', image: 'n/a' },
-		{ name: 'Loanup.com', link: 'https://loanup.com/', image: 'n/a' },
-	],
-};
+export interface IProject {
+	type: Group;
+	imagesList: IImageUrlMapping[];
+}
 
-const artProjects: IProjectGridProps = {
-	type: 'art',
-	projects: [
-		{ name: 'art 1', link: 'to art 1', image: 'n/a' },
-		{ name: 'art 2', link: 'to art 2', image: 'n/a' },
-	],
-};
+export interface IProjectGrid {
+	type: Group;
+	projectsList: IProjectTileProps[];
+}
 
-class Projects extends React.Component<IProjectStateAndProps, IProjectStateAndProps> {
-	constructor(props: any) {
-		super(props);
-		this.state = {
-			type: this.props.type,
-			images: this.props.images,
-		};
-	}
-
+class Projects extends React.Component<IProject> {
 	render() {
-		let projects: IProjectGridProps;
-
-		if (this.state.type === 'web') {
-			projects = webProjects;
-		} else {
-			projects = artProjects;
-		}
-
+		const projects = ParseImageTypes.parseRootType(this.props.imagesList, this.props.type);
+		const projectGrid = ParseImageTypes.parseProject(projects);
 		return (
 			<div>
-				<ProjectGrid {...projects} />
+				<ProjectGrid {...projectGrid} />
 			</div>
 		);
 	}

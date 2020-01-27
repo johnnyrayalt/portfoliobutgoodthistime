@@ -1,6 +1,7 @@
+import { Group } from './../types/GroupType';
 import { IImageUrlMapping } from './IImageUrlMapping';
 
 export interface IProjectStateAndProps {
-	readonly type: 'web' | 'art' | '';
-	readonly images: IImageUrlMapping[];
+	readonly type: Group;
+	readonly images?: IImageUrlMapping[];
 }

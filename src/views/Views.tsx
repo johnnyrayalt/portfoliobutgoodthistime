@@ -7,6 +7,7 @@ import Home from 'views/Home';
 import Projects from 'views/Projects';
 
 const Views = (props: IViewsProps) => {
+	console.log(props.images);
 	return (
 		<>
 			<Switch>
@@ -15,13 +16,13 @@ const Views = (props: IViewsProps) => {
 					exact
 					activeClassName="active"
 					path="/projects/web"
-					component={() => <Projects images={props.images} type="web" />}
+					component={() => <Projects type="web" imagesList={props.images} />}
 				></Route>
 				<Route
 					exact
 					activeClassName="active"
 					path="/projects/art"
-					component={() => <Projects images={props.images} type="art" />}
+					component={() => <Projects type="art" imagesList={props.images} />}
 				></Route>
 				<Route activeClassName="active" path="/about" component={About} />
 				<Route component={Error404} />
