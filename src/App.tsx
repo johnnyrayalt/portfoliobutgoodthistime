@@ -1,5 +1,5 @@
-import './App.scss';
 import React from 'react';
+import './App.scss';
 import SideNav from './components/SideNav';
 import SubNavLink from './components/SubNavLink';
 import { creds } from './config';

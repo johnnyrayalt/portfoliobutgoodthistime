@@ -1,8 +1,8 @@
 import React from 'react';
-import { IProjectTileProps } from '../interfaces/IProjectTileProps';
+import { IProjectTile } from '../interfaces/IProjectTile';
 import './ProjectTileStyles.scss';
 
-const ProjectTile = (props: IProjectTileProps): JSX.Element => {
+const ProjectTile = (props: IProjectTile): JSX.Element => {
 	return (
 		<div className="project-tile-container">
 			<p>{props.name}</p>
