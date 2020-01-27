@@ -6,10 +6,10 @@ import Views from './views/Views';
 import { AWSService } from './services/AWS/AwsService';
 import creds from './config.json';
 
-const getImages = new AWSService(creds).getImages(['web', 'art']);
-console.log(getImages);
-
-const App: React.FC = () => {
+const awsService = new AWSService(creds);
+const App = () => {
+	const images = awsService.getImageUrlMaps();
+	console.log(images);
 	return (
 		<div className="App">
 			<div id="side-nav-wrapper">
