@@ -1,5 +1,5 @@
 import React from 'react';
-import 'views/AboutStyles.scss';
+import './AboutStyles.scss';
 
 const About: React.FC = (): JSX.Element => {
 	return (
