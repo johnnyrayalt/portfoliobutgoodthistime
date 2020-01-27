@@ -1,16 +1,6 @@
 import * as AWS from 'aws-sdk';
-
-export interface IAWSConfig {
-	readonly BUCKET_NAME: string;
-	readonly IDENTITY_POOL_ID: string;
-	readonly REGION: string;
-	readonly API_VERSION: string;
-}
-
-export interface IImageUrlMapping {
-	id: string;
-	url: string;
-}
+import { IAWSConfig } from '../../interfaces/IAWSConfig';
+import { IImageUrlMapping } from '../../interfaces/IImageUrlMapping';
 
 export class AWSService {
 	private s3: AWS.S3;

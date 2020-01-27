@@ -1,6 +1,5 @@
 import { IImageUrlMapping } from './IImageUrlMapping';
 
-export interface IProjectStateAndProps {
-	type: 'web' | 'art' | '';
+export interface IViewsProps {
 	images: IImageUrlMapping[];
 }

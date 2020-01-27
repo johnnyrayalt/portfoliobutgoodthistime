@@ -24,6 +24,7 @@ class Projects extends React.Component<IProjectStateAndProps, IProjectStateAndPr
 		super(props);
 		this.state = {
 			type: this.props.type,
+			images: this.props.images,
 		};
 	}
 

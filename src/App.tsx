@@ -9,7 +9,7 @@ import Views from './views/Views';
 const awsService = new AWSService(creds);
 const App = () => {
 	const images = awsService.getImageUrlMaps();
-	console.log(images);
+
 	return (
 		<div className="App">
 			<div id="side-nav-wrapper">
@@ -25,7 +25,7 @@ const App = () => {
 				</SideNav>
 			</div>
 			<div id="body-content-wrapper">
-				<Views />
+				<Views images={images} />
 			</div>
 		</div>
 	);
