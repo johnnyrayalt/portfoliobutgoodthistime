@@ -1,6 +1,6 @@
+import { ILink } from 'interfaces/ILink';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ILink } from '../interfaces/ILink';
 
 const SubNavLink = (props: { link: ILink; classNames: string[] }) => {
 	const parseClassNames = (classNames: string[]): string => {

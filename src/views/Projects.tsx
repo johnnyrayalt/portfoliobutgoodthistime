@@ -1,7 +1,7 @@
+import ProjectGrid from 'components/ProjectGrid';
+import { IProjectGridProps } from 'interfaces/IProjectGridProps';
+import { IProjectStateAndProps } from 'interfaces/IProjectStateAndProps';
 import React from 'react';
-import ProjectGrid from '../components/ProjectGrid';
-import { IProjectGridProps } from '../interfaces/IProjectGridProps';
-import { IProjectStateAndProps } from '../interfaces/IProjectStateAndProps';
 
 const webProjects: IProjectGridProps = {
 	type: 'web',

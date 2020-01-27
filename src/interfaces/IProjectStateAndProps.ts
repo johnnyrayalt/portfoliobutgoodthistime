@@ -1,6 +1,6 @@
 import { IImageUrlMapping } from './IImageUrlMapping';
 
 export interface IProjectStateAndProps {
-	type: 'web' | 'art' | '';
-	images: IImageUrlMapping[];
+	readonly type: 'web' | 'art' | '';
+	readonly images: IImageUrlMapping[];
 }

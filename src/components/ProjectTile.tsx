@@ -1,5 +1,5 @@
+import { IProjectTileProps } from 'interfaces/IProjectTileProps';
 import React from 'react';
-import { IProjectTileProps } from '../interfaces/IProjectTileProps';
 import './ProjectTileStyles.scss';
 
 const ProjectTile = (props: IProjectTileProps) => {

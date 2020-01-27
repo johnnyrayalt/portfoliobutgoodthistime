@@ -1,10 +1,10 @@
+import 'App.scss';
+import SideNav from 'components/SideNav';
+import SubNavLink from 'components/SubNavLink';
+import creds from 'config.json';
 import React from 'react';
-import './App.scss';
-import SideNav from './components/SideNav';
-import SubNavLink from './components/SubNavLink';
-import creds from './config.json';
-import { AWSService } from './services/AWS/AwsService';
-import Views from './views/Views';
+import { AWSService } from 'services/AWS/AwsService';
+import Views from 'views/Views';
 
 const awsService = new AWSService(creds);
 const App = () => {

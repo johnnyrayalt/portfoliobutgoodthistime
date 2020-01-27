@@ -1,4 +1,4 @@
-import { IImageUrlMapping } from './IImageUrlMapping';
+import { IImageUrlMapping } from 'interfaces/IImageUrlMapping';
 
 export interface IViewsProps {
 	images: IImageUrlMapping[];

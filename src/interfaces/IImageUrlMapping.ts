@@ -1,4 +1,4 @@
 export interface IImageUrlMapping {
-	id: string;
-	url: string;
+	readonly id: string;
+	readonly url: string;
 }

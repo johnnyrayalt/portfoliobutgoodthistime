@@ -1,6 +1,6 @@
 import * as AWS from 'aws-sdk';
-import { IAWSConfig } from '../../interfaces/IAWSConfig';
-import { IImageUrlMapping } from '../../interfaces/IImageUrlMapping';
+import { IAWSConfig } from 'interfaces/IAWSConfig';
+import { IImageUrlMapping } from 'interfaces/IImageUrlMapping';
 
 export class AWSService {
 	private s3: AWS.S3;

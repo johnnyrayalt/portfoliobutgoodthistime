@@ -1,7 +1,7 @@
+import 'components/SideNavStyles.scss';
+import { ISideNavState } from 'interfaces/ISideNavState';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ISideNavState } from '../interfaces/ISideNavState';
-import './SideNavStyles.scss';
 
 class SideNav extends React.Component<{}, ISideNavState> {
 	constructor(props: Readonly<{}>) {

@@ -1,10 +1,10 @@
+import { IViewsProps } from 'interfaces/IViewsProps';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { IViewsProps } from '../interfaces/IViewsProps';
-import About from './About';
-import Error404 from './Error404';
-import Home from './Home';
-import Projects from './Projects';
+import About from 'views/About';
+import Error404 from 'views/Error404';
+import Home from 'views/Home';
+import Projects from 'views/Projects';
 
 const Views = (props: IViewsProps) => {
 	return (

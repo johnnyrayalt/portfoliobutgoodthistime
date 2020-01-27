@@ -1,4 +1,4 @@
-import { IProjectTileProps } from './IProjectTileProps';
+import { IProjectTileProps } from 'interfaces/IProjectTileProps';
 
 export interface IProjectGridProps {
 	readonly type: 'web' | 'art';
