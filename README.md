@@ -1,9 +1,5 @@
-# New stab at a portfolio website
+## personal porfolio website
 
-## Under Construction
+## under construction
 
-## NOTE: Master branch is a quick placeholder, to see the actual website progress please checkout the dev branch
-
-## V.1 is live at johnnyrayalt.github.io
-
-## V.2, when released, will aim to get the site out of under construction
+#### this page uses React, AWS S3, TypeScript
