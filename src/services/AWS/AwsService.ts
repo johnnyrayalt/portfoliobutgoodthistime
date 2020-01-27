@@ -7,12 +7,20 @@ export interface IAWSConfig {
 	readonly API_VERSION: string;
 }
 
+export interface IImageUrlMapping {
+	id: string;
+	url: string;
+}
+
 export class AWSService {
 	private s3: AWS.S3;
+
 	private readonly bucketName: string;
 	private readonly identityPoolId: string;
 	private readonly region: string;
 	private readonly apiVersion: string;
+
+	private imageUrlMaps: IImageUrlMapping[] = [];
 
 	constructor(awsConfig: IAWSConfig) {
 		this.bucketName = awsConfig.BUCKET_NAME;
@@ -28,20 +36,43 @@ export class AWSService {
 			apiVersion: this.apiVersion,
 			params: { Bucket: this.bucketName },
 		});
+		this.getImagesFromS3(this.s3);
 	}
 
-	public getImages = (albumNames: string[]) => {
-		const params = {
+	public getImageUrlMaps = (): IImageUrlMapping[] => {
+		return this.imageUrlMaps;
+	};
+
+	private getImagesFromS3 = (s3: AWS.S3): void => {
+		const params: AWS.S3.ListObjectsV2Request = {
 			Bucket: this.bucketName,
 		};
 
-		this.s3.listObjectsV2(params, (err, data) => {
-			if (err) {
-				throw new Error(`Error at listObjectsV2: ${err.message}`);
-			}
-			console.log(data);
-		});
-	};
+		const imageUrls: IImageUrlMapping[] = [];
+		const getKeys = (): AWS.Request<AWS.S3.ListObjectsV2Output, AWS.AWSError> => {
+			return s3.listObjectsV2(params, (err: AWS.AWSError, data: AWS.S3.ListObjectsV2Output): void => {
+				if (err) {
+					throw new Error(`Error getting keys from AWS: ${err.message}`);
+				} else {
+					data.Contents?.forEach((image: AWS.S3.Object): void => {
+						if (image.Key === undefined || image.Key.charAt(image.Key.length - 1) === '/') return;
 
-	public viewAlbums = () => {};
+						const url = `https://${this.bucketName}.s3-${this.region}.amazonaws.com/${image.Key}`;
+						const urlMapping: IImageUrlMapping = {
+							id: image.Key,
+							url: url,
+						};
+						imageUrls.push(urlMapping);
+
+						if (data.IsTruncated) {
+							params.ContinuationToken = data.ContinuationToken;
+							getKeys();
+						}
+					});
+				}
+			});
+		};
+		getKeys();
+		this.imageUrlMaps = imageUrls;
+	};
 }
