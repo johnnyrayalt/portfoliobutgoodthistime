@@ -13,6 +13,7 @@ export const Constants: ConstantsSchema = {
 		art: {
 			alphaDecay: {
 				key: 'alphaDecay',
+				root: 'art',
 				name: 'Alpha Decay',
 				year: '2013',
 				description:
@@ -20,6 +21,7 @@ export const Constants: ConstantsSchema = {
 			},
 			optimizedLivingSpaces: {
 				key: 'optimizedLivingSpaces',
+				root: 'art',
 				name: 'Optimized Living Spaces #1',
 				year: '2012',
 				description: 'Paint and screen print on paper with pencil',

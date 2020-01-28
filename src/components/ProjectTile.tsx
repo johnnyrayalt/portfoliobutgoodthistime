@@ -1,7 +1,8 @@
 import React from 'react';
+import { Constants } from '../assets/Constants';
 import { IProjectTile } from '../interfaces/IProjectTile';
 import './ProjectTileStyles.scss';
-import { Constants } from '../assets/Constants';
+import { Link } from 'react-router-dom';
 
 const ProjectTile = (props: IProjectTile): JSX.Element => {
 	let projectDetails: { [name: string]: string };
@@ -27,7 +28,6 @@ const ProjectTile = (props: IProjectTile): JSX.Element => {
 			throw new Error(`Name formatter returned undefined for name: ${name}`);
 		} else {
 			projectDetails = Constants.projects.art[key];
-			console.log(projectDetails);
 			return projectDetails;
 		}
 	})(props.name);
@@ -36,8 +36,10 @@ const ProjectTile = (props: IProjectTile): JSX.Element => {
 		<div className="project-tile-container">
 			<div className="project-tile-image" />
 			<div className="project-tile-text-container">
-				<p className="project-tile-text">{projectDetails.name}</p>
-				<div className="project-tile-text">{projectDetails.year}</div>
+				<Link to={`/projects/${projectDetails.root}/${projectDetails.key}`}>
+					<p className="project-tile-text">{projectDetails.name}</p>
+					<div className="project-tile-text">{projectDetails.year}</div>
+				</Link>
 			</div>
 		</div>
 	);

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { IViewsProps } from '../interfaces/IViewsProps';
-import About from '../views/About';
-import Error404 from '../views/Error404';
-import Home from '../views/Home';
-import Projects from '../views/Projects';
+import About from './About';
+import Error404 from './Error404';
+import Home from './Home';
+import IndividualProject from './IndividualProject';
+import Projects from './Projects';
 
 const Views = (props: IViewsProps): JSX.Element => {
 	return (
@@ -23,6 +24,7 @@ const Views = (props: IViewsProps): JSX.Element => {
 					path="/projects/art"
 					component={() => <Projects type="art" imagesList={props.images} />}
 				></Route>
+				<Route exact path={`/projects/art/:key`} component={() => <IndividualProject />}></Route>
 				<Route activeClassName="active" path="/about" component={About} />
 				<Route component={Error404} />
 			</Switch>
