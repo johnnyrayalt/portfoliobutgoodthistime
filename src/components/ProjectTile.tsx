@@ -34,9 +34,9 @@ const ProjectTile = (props: IProjectTile): JSX.Element => {
 
 	return (
 		<div className="project-tile-container">
-			<div className="project-tile-image" />
+			<div className="project-tile-image" style={backgroundImage} />
 			<div className="project-tile-text-container">
-				<Link to={`/projects/${projectDetails.root}/${projectDetails.key}`}>
+				<Link className="project-tile-link" to={`/projects/${projectDetails.root}/${projectDetails.key}`}>
 					<p className="project-tile-text">{projectDetails.name}</p>
 					<div className="project-tile-text">{projectDetails.year}</div>
 				</Link>
