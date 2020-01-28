@@ -1,6 +1,47 @@
 .project-tile-container {
-	border: 1px solid black;
-	padding: 1em;
-	width: 200px;
-	height: 200px;
+	border: 2px solid black;
+	width: 250px;
+	height: 250px;
+	overflow: hidden;
+	position: relative;
+
+	> * {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 250px;
+		height: 250px;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		background-color: rgba(0, 66, 255, 0);
+	}
+
+	&:hover {
+		border: 2px solid rgb(0, 66, 255);
+		transition: 0.3s;
+
+		&::before {
+			background-color: rgba(0, 66, 255, 0.5);
+		}
+	}
+}
+
+.project-tile-image {
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.project-tile-text-container {
+	color: #000;
+	z-index: 99999999;
 }
