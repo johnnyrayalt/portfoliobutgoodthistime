@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import IndividualProject from '../components/IndividualProject';
 import { IViewsProps } from '../interfaces/IViewsProps';
 import About from './About';
 import Error404 from './Error404';
 import Home from './Home';
-import IndividualProject from './IndividualProject';
 import Projects from './Projects';
 
 const Views = (props: IViewsProps): JSX.Element => {
