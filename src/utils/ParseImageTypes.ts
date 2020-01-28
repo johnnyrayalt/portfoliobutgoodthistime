@@ -32,8 +32,7 @@ export class ParseImageTypes {
 		return result;
 	};
 
-	// this needs to group by project and then sort
-	public static parseProject = (props: IProject): IProjectGrid => {
+	public static parseProjectsForGrid = (props: IProject): IProjectGrid => {
 		const getImagePreviewItems: IImageUrlMapping[] = [];
 
 		props.imagesList.forEach((image: IImageUrlMapping): void => {
@@ -50,5 +49,9 @@ export class ParseImageTypes {
 		};
 
 		return value;
+	};
+
+	public static parseProjectsForList = (props: IProject): IProject => {
+		return props;
 	};
 }

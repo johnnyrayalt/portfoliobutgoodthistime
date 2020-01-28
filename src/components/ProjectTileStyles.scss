@@ -1,6 +1,56 @@
 .project-tile-container {
-	border: 1px solid black;
+	border: 2px solid black;
+	width: 250px;
+	height: 250px;
+	position: relative;
+	background-color: rgba(0, 66, 255, 0);
+
+	.project-tile-text-container {
+		color: white;
+		width: 100%;
+		height: 100%;
+		font-size: 18px;
+		position: absolute;
+		opacity: 0;
+		overflow-wrap: break-word;
+		transform: translateY(-100%);
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			opacity: 1;
+			background-color: rgba(0, 66, 255, 0.8);
+		}
+	}
+
+	&:hover {
+		border: 2px solid rgb(0, 66, 255);
+	}
+}
+
+.project-tile-image {
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.project-tile-text {
 	padding: 1em;
-	width: 200px;
-	height: 200px;
+	font-weight: bold;
+	font-size: 24px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.project-tile-link {
+	text-decoration: none;
+	color: white;
 }

@@ -1,7 +1,7 @@
 import { Group } from '../types/GroupType';
-import { IProjectTileProps } from './IProjectTileProps';
+import { IProjectTile } from './IProjectTile';
 
 export interface IProjectGrid {
 	type: Group;
-	projectsList: IProjectTileProps[];
+	projectsList: IProjectTile[];
 }
