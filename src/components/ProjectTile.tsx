@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Constants } from '../assets/Constants';
 import { IProjectTile } from '../interfaces/IProjectTile';
 import './ProjectTileStyles.scss';
-import { Link } from 'react-router-dom';
 
 const ProjectTile = (props: IProjectTile): JSX.Element => {
 	let projectDetails: { [name: string]: string };
