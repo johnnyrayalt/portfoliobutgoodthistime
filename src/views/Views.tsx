@@ -8,10 +8,6 @@ import Home from './Home';
 import Projects from './Projects';
 
 const Views = (props: IViewsProps): JSX.Element => {
-	console.log(props.images);
-	// const imagesForIndividualProject: IProject = ParseImageTypes.parseProjectsForList(
-	// 	ParseImageTypes.parseRootType(props.images, props.type),
-	// );
 	return (
 		<>
 			<Switch>
@@ -31,7 +27,17 @@ const Views = (props: IViewsProps): JSX.Element => {
 					component={() => <Projects type="art" imagesList={props.images} />}
 				></Route>
 
-				<Route exact path={`/projects/art/:key`} component={() => <IndividualProject imagesList={props.images} />} />
+				<Route
+					exact
+					path={`/projects/art/:key`}
+					component={() => <IndividualProject imagesList={props.images} type="art" />}
+				/>
+
+				<Route
+					exact
+					path={`/projects/web/:key`}
+					component={() => <IndividualProject imagesList={props.images} type="web" />}
+				/>
 
 				<Route activeClassName="active" path="/about" component={About} />
 
