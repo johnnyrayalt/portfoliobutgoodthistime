@@ -32,26 +32,22 @@ export class ParseImageTypes {
 		return result;
 	};
 
-	public static parseProjectsForGrid = (props: IProject): IProjectGrid => {
+	public static parseProjectsForGrid = (props: IProject, type: Group): IProjectGrid => {
 		const getImagePreviewItems: IImageUrlMapping[] = [];
 
 		props.imagesList.forEach((image: IImageUrlMapping): void => {
-			if (image.id.includes('/1.jpg')) {
+			if (image.id.includes('/1.') || image.id.includes('/1_')) {
 				getImagePreviewItems.push(image);
 			}
 		});
 
 		const value: IProjectGrid = {
-			type: 'art',
+			type: type,
 			projectsList: getImagePreviewItems.map(image => {
-				return { name: image.id, link: image.url, image: image.url };
+				return { name: image.id, link: image.url, image: image.url, type: type };
 			}),
 		};
 
 		return value;
-	};
-
-	public static parseProjectsForList = (props: IProject): IProject => {
-		return props;
 	};
 }
