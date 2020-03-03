@@ -1,16 +1,19 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Constants } from '../assets/Constants';
 import { IImageUrlMapping } from '../interfaces/IImageUrlMapping';
+import { Group } from '../types/GroupType';
 import './IndividualProjectStyles.scss';
 
 interface RouteInfo {
 	key: string;
 }
 
-const IndividualProject = (props: { imagesList: IImageUrlMapping[] }): JSX.Element => {
+const IndividualProject = (props: { imagesList: IImageUrlMapping[]; type: Group }): JSX.Element => {
 	const imageList: IImageUrlMapping[] = [];
 	const params = useParams<RouteInfo>();
 
+	console.log(params.key);
 	(() =>
 		props.imagesList.forEach((image: IImageUrlMapping) => {
 			if (image.id.includes(params.key)) {
@@ -28,6 +31,11 @@ const IndividualProject = (props: { imagesList: IImageUrlMapping[] }): JSX.Eleme
 
 	return (
 		<div className="individual-project-container">
+			<div className="individual-project-info-container">
+				<div className="individual-project-info-name">
+					<p>{Constants.projects[props.type][params.key].description}</p>
+				</div>
+			</div>
 			<div className="individual-project-image-list">
 				<ul className="individual-project-image-ul">
 					{imageList.map((image: IImageUrlMapping) => {
