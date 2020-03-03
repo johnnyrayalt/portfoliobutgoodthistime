@@ -11,7 +11,7 @@ const ProjectGrid = (props: IProjectGrid): JSX.Element => {
 			{props.projectsList.map(
 				(project: IProjectTile): JSX.Element => (
 					<div key={uuidv1()} className="project-grid-item">
-						<ProjectTile {...project} />
+						<ProjectTile {...project} type={props.type} />
 					</div>
 				),
 			)}

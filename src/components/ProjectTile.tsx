@@ -23,11 +23,11 @@ const ProjectTile = (props: IProjectTile): JSX.Element => {
 		}
 
 		const key: string | undefined = names.pop()?.slice(0, -1);
-
-		if (!key) {
+		if (key === undefined) {
 			throw new Error(`Name formatter returned undefined for name: ${name}`);
 		} else {
-			projectDetails = Constants.projects.art[key];
+			console.log(Constants.projects[props.type]);
+			projectDetails = Constants.projects[props.type][key];
 			return projectDetails;
 		}
 	})(props.name);
