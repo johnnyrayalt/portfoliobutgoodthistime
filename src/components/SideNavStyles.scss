@@ -1,9 +1,11 @@
+@import '../App.scss';
 $active-link: #0044ff;
 
 #side-nav-container {
+	display: block;
 	padding: 1em;
+	width: auto;
 	height: auto;
-	width: 195px;
 	font-weight: bold;
 
 	ul {
@@ -24,6 +26,7 @@ $active-link: #0044ff;
 		&:hover {
 			color: $active-link;
 		}
+		white-space: nowrap;
 	}
 
 	.btn {
@@ -38,5 +41,33 @@ $active-link: #0044ff;
 
 	.active {
 		color: $active-link;
+	}
+
+	@include mobile {
+		#side-nav-container {
+			width: 100%;
+			padding: 0;
+			margin: 0;
+		}
+
+		.link-container {
+			padding-top: 1em;
+		}
+
+		nav ul {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		li {
+			flex: 1 0 40%;
+		}
+
+		.side-nav-ul {
+			margin: 0;
+			padding: 0;
+		}
 	}
 }
