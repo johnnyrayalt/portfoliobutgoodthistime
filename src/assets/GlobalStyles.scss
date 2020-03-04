@@ -1,6 +1,10 @@
 a,
 button,
 .text {
-	cursor: ne-resize;
 	user-select: none;
+}
+
+.project-tile-link,
+.link {
+	cursor: ne-resize;
 }

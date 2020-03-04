@@ -12,16 +12,23 @@ interface RouteInfo {
 const IndividualProject = (props: { imagesList: IImageUrlMapping[]; type: Group }): JSX.Element => {
 	const imageList: IImageUrlMapping[] = [];
 	const params = useParams<RouteInfo>();
+	const projectInfo = Constants.projects[props.type][params.key];
 
-	console.log(params.key);
 	(() =>
 		props.imagesList.forEach((image: IImageUrlMapping) => {
 			if (image.id.includes(params.key)) {
 				const getIndex = image.id.replace(/\D/g, '');
-				const newImage: IImageUrlMapping = {
+				let newImage: IImageUrlMapping = {
 					id: getIndex,
 					url: image.url,
 				};
+
+				if (projectInfo.link === undefined) {
+					newImage.link = image.url;
+				} else {
+					newImage.link = projectInfo.link;
+				}
+
 				imageList.push(newImage);
 			}
 			imageList.sort((a, b) => {
@@ -32,16 +39,23 @@ const IndividualProject = (props: { imagesList: IImageUrlMapping[]; type: Group 
 	return (
 		<div className="individual-project-container">
 			<div className="individual-project-info-container">
-				<div className="individual-project-info-name">
-					<p>{Constants.projects[props.type][params.key].description}</p>
-				</div>
+				<p className="individual-project-info-text text individual-project-info-name">{projectInfo.name}</p>
+				<p className="individual-project-info-text text individual-project-info-description">
+					{projectInfo.description()}
+				</p>
+				<p className="individual-project-info-text text individual-project-info-year">{projectInfo.year}</p>
 			</div>
 			<div className="individual-project-image-list">
 				<ul className="individual-project-image-ul">
 					{imageList.map((image: IImageUrlMapping) => {
 						return (
 							<li className="individual-project-image-li" key={image.id}>
-								<a className="individual-project-image-link" href={image.url} target="_blank" rel="noopener noreferrer">
+								<a
+									className="individual-project-image-link link"
+									href={image.link}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<img src={image.url} className="individual-project-image" alt={`${image.id}`} />
 								</a>
 							</li>

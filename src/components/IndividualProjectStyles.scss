@@ -10,3 +10,18 @@
 	width: auto;
 	max-width: 500px;
 }
+
+.individual-project-info-container {
+	margin-right: 3em;
+
+	.individual-project-info-name {
+		font-weight: 700;
+		font-size: 26px;
+	}
+
+	.individual-project-info-description,
+	.individual-project-info-year {
+		font-size: 18px;
+		white-space: pre-wrap;
+	}
+}
