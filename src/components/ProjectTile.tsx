@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Constants } from '../assets/Constants';
+import { Constants, IProjectDetails } from '../assets/Constants';
 import { IProjectTile } from '../interfaces/IProjectTile';
 import './ProjectTileStyles.scss';
 
 const ProjectTile = (props: IProjectTile): JSX.Element => {
-	let projectDetails: { [name: string]: string };
+	let projectDetails: IProjectDetails;
 
 	const backgroundImage = {
 		backgroundImage: `url(${props.image})`,
 	};
 
-	((name: string): { [name: string]: string } => {
+	((name: string): IProjectDetails => {
 		const regex: RegExp = /\b([^/]*\/)/gi;
 		const names: RegExpMatchArray | null = name.match(regex);
 
@@ -26,7 +26,6 @@ const ProjectTile = (props: IProjectTile): JSX.Element => {
 		if (key === undefined) {
 			throw new Error(`Name formatter returned undefined for name: ${name}`);
 		} else {
-			console.log(Constants.projects[props.type]);
 			projectDetails = Constants.projects[props.type][key];
 			return projectDetails;
 		}
