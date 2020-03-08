@@ -47,6 +47,6 @@
     "devDependencies": {
         "@types/gl-matrix": "^2.4.5",
         "@types/webgl2": "0.0.5",
-        "cssnano": "^4.1.10",
+        "cssnano": "^4.1.10"
     }
 }
