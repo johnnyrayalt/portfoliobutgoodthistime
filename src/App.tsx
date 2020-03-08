@@ -14,11 +14,11 @@ const App = (): JSX.Element => {
 		<div className="App">
 			<div id="side-nav-wrapper">
 				<SideNav>
-					<ul>
-						<li>
+					<ul className="sub-nav-ul">
+						<li className="sub-nav-li">
 							<SubNavLink link={{ parent: 'projects', child: 'web' }} classNames={['link', 'sub-nav-link']} />
 						</li>
-						<li>
+						<li className="sub-nav-li">
 							<SubNavLink link={{ parent: 'projects', child: 'art' }} classNames={['link', 'sub-nav-link']} />
 						</li>
 					</ul>

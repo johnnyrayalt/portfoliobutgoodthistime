@@ -5,7 +5,7 @@ import { ILink } from '../interfaces/ILink';
 const SubNavLink = (props: { link: ILink; classNames: string[] }): JSX.Element => {
 	const parseClassNames = (classNames: string[]): string => {
 		if (!classNames) {
-			return '';
+			return 'sub-nav-link';
 		}
 
 		let nameString: string = '';
@@ -26,7 +26,7 @@ const SubNavLink = (props: { link: ILink; classNames: string[] }): JSX.Element =
 
 	return (
 		<NavLink className={parseClassNames(props.classNames)} to={`/${props.link.parent}/${props.link.child}`}>
-			{parseDisplayString()}
+			{'↳' + parseDisplayString()}
 		</NavLink>
 	);
 };

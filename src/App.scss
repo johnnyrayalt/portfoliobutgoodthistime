@@ -1,9 +1,30 @@
-#side-nav-wrapper {
-	height: 100vh;
-	margin-right: 2em;
+@mixin mobile {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
 }
 
 .App {
 	display: flex;
-	flex-direction: row;
+
+	@include mobile {
+		display: inline;
+	}
+}
+
+#side-nav-wrapper {
+	margin-right: 2em;
+}
+
+@include mobile {
+	#body-content-wrapper {
+		display: flex;
+		justify-content: center;
+	}
+
+	#side-nav-wrapper {
+		.sub-nav-ul {
+			padding-top: 1em;
+		}
+	}
 }

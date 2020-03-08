@@ -7,12 +7,13 @@
 }
 
 .individual-project-image {
-	width: auto;
+	width: 100%;
 	max-width: 500px;
 }
 
 .individual-project-info-container {
 	margin-right: 3em;
+	max-width: 500px;
 
 	.individual-project-info-name {
 		font-weight: 700;

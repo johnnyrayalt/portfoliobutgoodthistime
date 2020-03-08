@@ -3,12 +3,16 @@ import { NavLink } from 'react-router-dom';
 import { ISideNavState } from '../interfaces/ISideNavState';
 import './SideNavStyles.scss';
 
+/**
+ * test
+ */
 class SideNav extends React.Component<{}, ISideNavState> {
 	constructor(props: Readonly<{}>) {
 		super(props);
 		this.state = {
 			expanded: false,
 		};
+
 		this.handleChangeExpandedState = this.handleChangeExpandedState.bind(this);
 	}
 
@@ -30,24 +34,24 @@ class SideNav extends React.Component<{}, ISideNavState> {
 				</div>
 				<div className="link-container">
 					<nav>
-						<ul>
-							<li>
+						<ul className="side-nav-ul">
+							<li className="side-nav-li">
 								<button onClick={this.handleChangeExpandedState} className="link btn">
 									Projects
 								</button>
 								{this.state.expanded && this.props.children}
 							</li>
-							<li>
+							<li className="side-nav-li">
 								<NavLink className="link" to="/about">
 									About
 								</NavLink>
 							</li>
-							<li>
+							<li className="side-nav-li">
 								<a className="link" href="https://github.com/johnnyrayalt" rel="noopener noreferrer" target="_blank">
 									&#x02197; Github
 								</a>
 							</li>
-							<li>
+							<li className="side-nav-li">
 								<a className="link" href="mailto:johnnyrayalt@gmail.com">
 									&#x02197; Contact
 								</a>
