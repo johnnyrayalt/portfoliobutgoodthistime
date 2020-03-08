@@ -1,6 +1,8 @@
-import React, { RefObject } from 'react';
-import * as THREE from 'three';
+import React, { RefObject, Suspense } from 'react';
 import './Home.scss';
+import { Canvas } from 'react-three-fiber';
+import WebGlText from '../components/WebGLFont/WebGLText';
+
 // const createGeometry = require('three-bmfont-text');
 // const loadFont = require('load-bmfont');
 
@@ -12,46 +14,21 @@ class Home extends React.Component<{}, {}> {
 		this.canvas = React.createRef();
 	}
 
-	componentDidMount() {
-		const scene = new THREE.Scene();
-		scene.background = new THREE.Color(0xffffff);
-		const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-		const canvas = this.canvas.current;
-		const renderer = new THREE.WebGLRenderer({ canvas: canvas });
-
-		renderer.setSize(window.innerWidth - 200, window.innerHeight);
-
-		const fontJSON = require('../assets/fonts/lato_black.typeface.json');
-		console.log(fontJSON);
-		const font = new THREE.Font(fontJSON);
-		const fontGeometry = new THREE.TextGeometry('WELCOME', {
-			font: font,
-			size: 1,
-			height: 1,
-		});
-
-		const fontMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
-
-		const fontMesh = new THREE.Mesh(fontGeometry, fontMaterial);
-
-		scene.add(fontMesh);
-
-		camera.position.z = 8;
-		const animate = function() {
-			requestAnimationFrame(animate);
-			// cube.rotation.x += 0.01;
-			// cube.rotation.y += 0.01;
-			renderer.render(scene, camera);
-		};
-		animate();
-	}
+	// componentDidMount() {
+	// 	const font = new WebGLFont({ canvas: this.canvas }, { word: 'WELCOME', position: [-3, 0, 10], zoom: 100 });
+	// 	return font;
+	// }
 
 	render() {
 		return (
 			<>
-				<div style={{ width: '100%' }}>
-					<canvas ref={this.canvas} style={{ width: '100%', height: '100%' }} />;
-				</div>
+				<Canvas camera={{ position: [0, 0, 35] }}>
+					<ambientLight intensity={2} />
+					<pointLight position={[40, 40, 40]} />
+					<Suspense fallback={null}>
+						<WebGlText children="WELCOME" position={[0, 4.2, 0]} hAlign="left" />
+					</Suspense>
+				</Canvas>
 			</>
 		);
 	}
