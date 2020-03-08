@@ -3,12 +3,16 @@ import { NavLink } from 'react-router-dom';
 import { ISideNavState } from '../interfaces/ISideNavState';
 import './SideNavStyles.scss';
 
+/**
+ * test
+ */
 class SideNav extends React.Component<{}, ISideNavState> {
 	constructor(props: Readonly<{}>) {
 		super(props);
 		this.state = {
 			expanded: false,
 		};
+
 		this.handleChangeExpandedState = this.handleChangeExpandedState.bind(this);
 	}
 
