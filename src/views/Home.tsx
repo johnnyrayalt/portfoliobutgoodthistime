@@ -22,7 +22,7 @@ class Home extends React.Component<{}, {}> {
 	render() {
 		return (
 			<>
-				<Canvas camera={{ position: [0, 0, 35] }}>
+				<Canvas camera={{ position: [0, 0, 35] }} style={{ width: '100%' }}>
 					<ambientLight intensity={2} />
 					<pointLight position={[40, 40, 40]} />
 					<Suspense fallback={null}>

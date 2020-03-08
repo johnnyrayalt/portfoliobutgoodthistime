@@ -4,7 +4,6 @@ import { useUpdate } from 'react-three-fiber';
 const fontJSON = require('../../assets/fonts/lato_black.typeface.json');
 
 export default function({ children, vAlign = 'center', hAlign = 'center', size = 1, color = '#000000', ...props }) {
-	console.log(fontJSON);
 	const font = new THREE.Font(fontJSON);
 	const config = useMemo(
 		() => ({
