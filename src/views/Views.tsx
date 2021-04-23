@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './home';
 import ProjectPage from './projectPage';
 import Works from './works';
+import About from './about';
 
 const Views = (props: { images: any }): JSX.Element => {
 	const { images } = props;
@@ -39,7 +40,7 @@ const Views = (props: { images: any }): JSX.Element => {
 				<Route
 					exact
 					path='/about'
-					component={() => <div><p>about</p></div>}
+					component={() => <About expandedDefaultState={false} />}
 				/>
 
 			</Switch>
