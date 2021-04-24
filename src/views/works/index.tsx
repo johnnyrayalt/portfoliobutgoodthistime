@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import MastHead from '../../components/mastHead';
 import WorksList from '../../components/worksList';
 import { ART, IMAGE_ROOTS, PROFESSIONAL } from '../../assets/constants';
+import './styles.css';
 
-const Works = (props: { expandedDefaultState: boolean, worksRootIndex: string }): JSX.Element => {
-	const { expandedDefaultState, worksRootIndex } = props;
+const Works = (props: { worksRootIndex: string }): JSX.Element => {
+	const { worksRootIndex } = props;
 
 	const [worksList, setWorksList] = useState({});
 
@@ -24,16 +24,9 @@ const Works = (props: { expandedDefaultState: boolean, worksRootIndex: string })
 	});
 
 	return (
-		<>
-			<div className='masthead'>
-				<MastHead expandedDefaultState={expandedDefaultState} />
-			</div>
-			<div className='works-container'>
-				<p>works</p>
-				<p>{worksRootIndex}</p>
-				<WorksList worksList={worksList} worksRootIndex={worksRootIndex} />
-			</div>
-		</>
+		<div className='works-container'>
+			<WorksList worksList={worksList} worksRootIndex={worksRootIndex} />
+		</div>
 	);
 };
 

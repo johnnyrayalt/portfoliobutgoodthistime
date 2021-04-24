@@ -9,42 +9,42 @@ const Views = (props: { images: any }): JSX.Element => {
 	const { images } = props;
 
 	return (
-		<>
+		<div className='test'>
 			<Switch>
-				<Route exact path='/' component={() => <Home expandedDefaultState={false} />} />
+				<Route exact path='/' component={() => <Home />} />
 
 				<Route
 					exact
 					path='/works/art'
-					component={() => <Works expandedDefaultState={false} worksRootIndex={'art'} />}
+					component={() => <Works worksRootIndex={'art'} />}
 				/>
 
 				<Route
 					exact
 					path='/works/professional'
-					component={() => <Works expandedDefaultState={false} worksRootIndex={'professional'} />}
+					component={() => <Works worksRootIndex={'professional'} />}
 				/>
 
 				<Route
 					exact
 					path='/works/art/:id'
-					component={() => <ProjectPage expandedDefaultState={false} root={'art'} allImages={images} />}
+					component={() => <ProjectPage root={'art'} allImages={images} />}
 				/>
 
 				<Route
 					exact
 					path='/works/professional/:id'
-					component={() => <ProjectPage expandedDefaultState={false} root={'professional'} allImages={images} />}
+					component={() => <ProjectPage root={'professional'} allImages={images} />}
 				/>
 
 				<Route
 					exact
 					path='/about'
-					component={() => <About expandedDefaultState={false} />}
+					component={() => <About />}
 				/>
 
 			</Switch>
-		</>
+		</div>
 	);
 };
 

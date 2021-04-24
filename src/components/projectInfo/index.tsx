@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 const ProjectInfo = (props: { details: any }): JSX.Element => {
 	const { details } = props;

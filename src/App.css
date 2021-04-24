@@ -1,0 +1,16 @@
+.App {
+    color: white;
+    height: 100%;
+}
+
+.body-container {
+    padding-top: 6em;
+}
+
+.body-container a, .body-container a:visited {
+    color: white;
+}
+
+.body-container a:hover {
+    color: cyan;
+}

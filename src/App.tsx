@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.scss';
+import './App.css';
 import { IMAGE_ROOTS } from './assets/constants';
 import { creds } from './awsConfig';
 import { IImageMap } from './interfaces/IImageMap';
@@ -7,6 +7,7 @@ import { IParsedImageMap } from './interfaces/IParsedImageMap';
 import { AwsService } from './services/AwsService';
 import { ImageUtils } from './utils/ImageUtils';
 import Views from './views/Views';
+import MastHead from './components/mastHead';
 
 const App = (): JSX.Element => {
 
@@ -38,7 +39,8 @@ const App = (): JSX.Element => {
 
 	return (
 		<div className='App'>
-			<div id='nav-wrapper'>
+			<MastHead expandedDefaultState={false} />
+			<div className='body-container'>
 				<Views images={parsedImageMaps} />
 			</div>
 		</div>

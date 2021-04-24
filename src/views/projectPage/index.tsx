@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import MastHead from '../../components/mastHead';
 import { ART, PROFESSIONAL } from '../../assets/constants';
 import ProjectInfo from '../../components/projectInfo';
 import { IParsedImageMap } from '../../interfaces/IParsedImageMap';
@@ -13,8 +12,8 @@ interface IWorkObj {
 	description: string[];
 }
 
-const ProjectPage = (props: { expandedDefaultState: boolean, root: string, allImages: IParsedImageMap[] }): JSX.Element => {
-	const { expandedDefaultState, allImages, root } = props;
+const ProjectPage = (props: { root: string, allImages: IParsedImageMap[] }): JSX.Element => {
+	const { allImages, root } = props;
 
 	const [work, setWork] = useState<IWorkObj>();
 	const [parsedImages, setParsedImages] = useState<any[]>();
@@ -52,15 +51,11 @@ const ProjectPage = (props: { expandedDefaultState: boolean, root: string, allIm
 		extractInfo(projectData).then(worksList => {
 			setWork(worksList);
 			getImages(allImages, worksList!);
-			console.log(parsedImages)
 		});
 	});
 
 	return (
 		<>
-			<div className='masthead'>
-				<MastHead expandedDefaultState={expandedDefaultState} />
-			</div>
 			<div className='project-page-container'>
 				<ProjectInfo details={work} />
 				<ImageScroll imageList={parsedImages} />

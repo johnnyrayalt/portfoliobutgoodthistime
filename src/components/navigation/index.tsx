@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IExpandedDefaultState } from '../../interfaces/IExpandedDefaultState';
+import './styles.css';
 
 const Navigation = (props: IExpandedDefaultState): JSX.Element => {
 	const { expandedDefaultState } = props;

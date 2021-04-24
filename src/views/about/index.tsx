@@ -1,15 +1,9 @@
 import React from 'react';
-import MastHead from '../../components/mastHead';
-import { IExpandedDefaultState } from '../../interfaces/IExpandedDefaultState';
 
-const About = (props: IExpandedDefaultState): JSX.Element => {
-	const { expandedDefaultState } = props;
+const About = (): JSX.Element => {
 
 	return (
 		<>
-			<div className='masthead'>
-				<MastHead expandedDefaultState={expandedDefaultState} />
-			</div>
 			<div className='about-text-container'>
 				<div className='text'>
 					<span className='unicode'>&#x261E;</span> b. 1991 Los Angeles, California
