@@ -74,7 +74,6 @@ export class AwsService {
 			.catch((err) => {
 				throw new Error(err.message);
 			});
-		console.log(s3Data);
 		return s3Data;
 	};
 }

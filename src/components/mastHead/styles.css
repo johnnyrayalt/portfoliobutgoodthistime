@@ -17,6 +17,6 @@
     color: rgb(0, 0, 255);
 }
 
-.masthead a:hover {
+.masthead a:hover, .masthead .btn:hover {
     color: black;
 }

@@ -35,9 +35,11 @@ const ProjectInfo = (props: { details: any }): JSX.Element => {
 
 	return (
 		<div className='project-details-container'>
+			<span>{'{'}</span>
 			<ul>
 				{mapDetails()}
 			</ul>
+			<span>{'}'}</span>
 		</div>
 	);
 };

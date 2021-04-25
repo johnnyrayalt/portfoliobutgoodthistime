@@ -1,6 +1,8 @@
 html, body {
   height: 100%;
+  width: 100%;
   background-color: black;
+  cursor: nw-resize;
 }
 
 body {
@@ -20,9 +22,11 @@ code {
 
 .link {
   text-decoration: none;
+  cursor: ne-resize;
 }
 
 ul {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
