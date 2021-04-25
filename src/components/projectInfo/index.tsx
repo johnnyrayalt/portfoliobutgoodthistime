@@ -12,7 +12,9 @@ const ProjectInfo = (props: { details: any }): JSX.Element => {
 				if (detail !== 'description') {
 					arr.push((
 						<li key={detail} className='project-details-li-item'>
-							{`${detail}: ${details[detail]}`}
+							<span className='text'>
+								{`${detail}: ${details[detail]}`}
+							</span>
 						</li>
 					));
 				} else {
@@ -21,7 +23,9 @@ const ProjectInfo = (props: { details: any }): JSX.Element => {
 					details[detail].forEach((desc: string) => {
 						descriptionArray.push((
 							<li key={desc} className='project-details-li-item'>
-								{`${detail}: ${desc}`}
+								<span className='text'>
+									{`${detail}: ${desc}`}
+								</span>
 							</li>
 						));
 					});
@@ -35,11 +39,11 @@ const ProjectInfo = (props: { details: any }): JSX.Element => {
 
 	return (
 		<div className='project-details-container'>
-			<span>{'{'}</span>
+			<span className='text'>{'{'}</span>
 			<ul>
 				{mapDetails()}
 			</ul>
-			<span>{'}'}</span>
+			<span className='text'>{'}'}</span>
 		</div>
 	);
 };

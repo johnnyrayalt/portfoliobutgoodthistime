@@ -20,6 +20,14 @@ code {
     monospace;
 }
 
+.text::selection {
+  color: coral;
+}
+
+.link::selection {
+  color: coral;
+}
+
 .link {
   text-decoration: none;
   cursor: ne-resize;

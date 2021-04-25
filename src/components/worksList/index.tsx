@@ -16,15 +16,15 @@ const WorksList = (props: { worksList: any, worksRootIndex: string }): JSX.Eleme
 						className='works-list-li-link link'
 						to={`/works/${worksRootIndex}/${project}`}
 					>
-						<span style={{ paddingRight: '1em' }}>-rw-r--r--</span>
-						<span style={{ paddingRight: '0.4em' }}>1</span>
-						<span style={{ paddingRight: '0.8em' }}>johnny</span>
-						<span style={{ paddingRight: '1em' }}>staff</span>
-						<span style={{ paddingRight: '0.8em' }}>{months[new Date().getMonth()]}</span>
-						<span style={{ paddingRight: '0.4em' }}>{new Date().getDate()}</span>
-						<span style={{ paddingRight: '0.4em' }}>{new Date().getHours()}:{new Date().getMinutes()}</span>
-						<span style={{ fontWeight: 'bold' }}>{`${worksList[project].name}`}</span>
-						<span>{`.json`}</span>
+						<span className='text' style={{ paddingRight: '1em' }}>-rw-r--r--</span>
+						<span className='text' style={{ paddingRight: '0.4em' }}>1</span>
+						<span className='text' style={{ paddingRight: '0.8em' }}>johnny</span>
+						<span className='text' style={{ paddingRight: '1em' }}>staff</span>
+						<span className='text' style={{ paddingRight: '0.8em' }}>{months[new Date().getMonth()]}</span>
+						<span className='text' style={{ paddingRight: '0.4em' }}>{new Date().getDate()}</span>
+						<span className='text' style={{ paddingRight: '0.4em' }}>{new Date().getHours()}:{new Date().getMinutes()}</span>
+						<span className='text' style={{ fontWeight: 'bold' }}>{`${worksList[project].name}`}</span>
+						<span className='text'>{`.json`}</span>
 					</NavLink>
 				</li>
 			);
@@ -36,10 +36,10 @@ const WorksList = (props: { worksList: any, worksRootIndex: string }): JSX.Eleme
 
 	return (
 		<div className='works-list-container'>
-			<div>{'>'} ls -al</div>
+			<div className='text'>{'>'} ls -al</div>
 			{worksList && (
 				<div>
-					<div>total {Object.keys(worksList).length}</div>
+					<div className='text'>total {Object.keys(worksList).length}</div>
 					<ul className='works-list-ul'>
 						{handleSettingsWorksList()}
 					</ul>
