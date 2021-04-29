@@ -9,7 +9,7 @@ const ImageScroll = (props: { imageList: any }): JSX.Element => {
 			<ul>
 				{imageList !== undefined && imageList.map((image: any) => (
 					<li key={image.id}>
-						<img className='image' src={image.url}  alt={''}/>
+						<img className='image' src={image.url} alt={''} />
 					</li>
 				))}
 			</ul>
