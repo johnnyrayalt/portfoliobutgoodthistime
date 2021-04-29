@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import About from './about';
 import Home from './home';
 import ProjectPage from './projectPage';
 import Works from './works';
-import About from './about';
 
 const Views = (): JSX.Element => {
 
@@ -27,7 +27,7 @@ const Views = (): JSX.Element => {
 				<Route
 					exact
 					path='/works/art/:id'
-					component={() => <ProjectPage root={'art'}  />}
+					component={() => <ProjectPage root={'art'} />}
 				/>
 
 				<Route

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
-import { IMAGE_KV } from './assets/constants';
-import Views from './views/Views';
 import MastHead from './components/mastHead';
+import Views from './views/Views';
 
 const App = (): JSX.Element => {
 

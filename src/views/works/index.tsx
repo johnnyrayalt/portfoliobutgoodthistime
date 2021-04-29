@@ -1,6 +1,6 @@
 import React from 'react';
-import WorksList from '../../components/worksList';
 import { ART, IMAGE_ROOTS, PROFESSIONAL } from '../../assets/constants';
+import WorksList from '../../components/worksList';
 import './styles.css';
 
 const Works = (props: { worksRootIndex: string }): JSX.Element => {
