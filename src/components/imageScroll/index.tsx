@@ -3,6 +3,7 @@ import './styles.css';
 
 const ImageScroll = (props: { imageList: any }): JSX.Element => {
 	const { imageList } = props;
+	console.log(imageList)
 
 	return (
 		<div className='image-scroll-container'>

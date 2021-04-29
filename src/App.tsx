@@ -7,7 +7,7 @@ const App = (): JSX.Element => {
 
 	return (
 		<div className='App'>
-			<MastHead expandedDefaultState={false} />
+			<MastHead />
 			<div className='body-container'>
 				<Views />
 			</div>
