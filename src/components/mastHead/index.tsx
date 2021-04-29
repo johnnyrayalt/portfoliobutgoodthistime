@@ -10,7 +10,7 @@ const MastHead = (props: IExpandedDefaultState): JSX.Element => {
 	return (
 		<div className='masthead'>
 			<Header />
-			<Navigation expandedDefaultState={expandedDefaultState} />
+			<Navigation />
 		</div>
 	);
 };

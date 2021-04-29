@@ -5,8 +5,7 @@ import ProjectPage from './projectPage';
 import Works from './works';
 import About from './about';
 
-const Views = (props: { images: any }): JSX.Element => {
-	const { images } = props;
+const Views = (): JSX.Element => {
 
 	return (
 		<div className='test'>
@@ -28,13 +27,13 @@ const Views = (props: { images: any }): JSX.Element => {
 				<Route
 					exact
 					path='/works/art/:id'
-					component={() => <ProjectPage root={'art'} allImages={images} />}
+					component={() => <ProjectPage root={'art'}  />}
 				/>
 
 				<Route
 					exact
 					path='/works/professional/:id'
-					component={() => <ProjectPage root={'professional'} allImages={images} />}
+					component={() => <ProjectPage root={'professional'} />}
 				/>
 
 				<Route

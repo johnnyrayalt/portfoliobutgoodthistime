@@ -8,22 +8,31 @@ interface Schema {
 	};
 }
 
-export const IMAGE_ROOTS = {
+export const EXPANDED_STATE_KEYS: { [name: string]: string } = {
+	WORKS: 'works',
+	SOCIALS: 'socials'
+}
+
+export const IMAGE_KV: {[name: string]: {[name: string]: string}} = {
+	art: {
+		hapticParadigm: 'haptic_paradigm',
+		alphaDecay: 'alpha_decay',
+		optimizedLivingSpaces: 'optimized_living_spaces',
+	},
+	professional: {
+		cdkGlobal: 'cdk_gobal',
+		trendCapital: 'trend_capital',
+	}
+};
+
+export const IMAGE_ROOTS: { [name: string]: string } = {
 	art: 'art',
 	professional: 'professional',
 };
 
-export const IMAGE_KEYS: { [name: string]: string } = {
-	hapticParadigm: 'haptic_paradigm',
-	alphaDecay: 'alpha_decay',
-	optimizedLivingSpaces: 'optimized_living_spaces',
-	cdkGlobal: 'cdk_gobal',
-	trendCapital: 'trend_capital',
-};
-
 export const ART: Schema = {
 	hapticParadigm: {
-		key: IMAGE_KEYS.hapticParadigm,
+		key: IMAGE_KV.art.hapticParadigm,
 		name: 'Haptic Paradigm',
 		year: '2020',
 		link: 'https://haptic-paradigm.com/',
@@ -33,7 +42,7 @@ export const ART: Schema = {
 		],
 	},
 	alphaDecay: {
-		key: IMAGE_KEYS.alphaDecay,
+		key: IMAGE_KV.art.alphaDecay,
 		name: 'Alpha Decay',
 		year: '2013',
 		description: [
@@ -42,7 +51,7 @@ export const ART: Schema = {
 		],
 	},
 	optimizedLivingSpaces: {
-		key: IMAGE_KEYS.optimizedLivingSpaces,
+		key: IMAGE_KV.art.optimizedLivingSpaces,
 		name: 'Optimized Living Spaces #1',
 		year: '2012',
 		description: [`Acrylic paint, screen print, and graphite on BFK Rives paper.`],
@@ -51,7 +60,7 @@ export const ART: Schema = {
 
 export const PROFESSIONAL: Schema = {
 	cdkGlobal: {
-		key: IMAGE_KEYS.cdkGlobal,
+		key: IMAGE_KV.professional.cdkGlobal,
 		name: 'CDK Global',
 		year: '2020-2021',
 		link: 'https://www.cdkglobal.com/us',
@@ -61,7 +70,7 @@ export const PROFESSIONAL: Schema = {
 	},
 
 	trendCapital: {
-		key: IMAGE_KEYS.trendCapital,
+		key: IMAGE_KV.professional.trendCapital,
 		name: 'Trend Capital Holdings, Inc.',
 		year: '2019',
 		link: 'https://trendcapital.com/',

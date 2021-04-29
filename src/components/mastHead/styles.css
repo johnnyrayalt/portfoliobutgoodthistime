@@ -1,7 +1,7 @@
 .masthead {
     font-size: 20px;
     font-family: 'Source Code Pro', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(white, transparent);
+    background: linear-gradient(blue, transparent);
     position: fixed;
     top: 0;
     width: 100%;
@@ -14,9 +14,9 @@
 }
 
 .masthead a, .masthead a:visited, .masthead .btn {
-    color: rgb(0, 0, 255);
+    color: rgb(255, 255, 255);
 }
 
 .masthead a:hover, .masthead .btn:hover {
-    color: black;
+    color: coral;
 }
