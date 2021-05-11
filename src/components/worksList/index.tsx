@@ -1,36 +1,41 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import { MONTHS, Schema } from '../../assets/constants';
 
-const WorksList = (props: { worksList: any, worksRootIndex: string }): JSX.Element => {
+type Props = {
+	worksList: Schema,
+	worksRootIndex: string
+};
 
-	const { worksList, worksRootIndex } = props;
+const WorksList: FC<Props> = (Props): JSX.Element => {
+	const { worksList, worksRootIndex } = Props;
 
 	const handleSettingsWorksList = (): JSX.Element[] => {
 		const worksListArray: JSX.Element[] = [];
-		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 		for (const project in worksList) {
-			const component = (
-				<li className='works-list-li' key={project}>
-					<NavLink
-						className='works-list-li-link link'
-						to={`/works/${worksRootIndex}/${project}`}
-					>
-						<span className='text' style={{ paddingRight: '1em' }}>-rw-r--r--</span>
-						<span className='text' style={{ paddingRight: '0.4em' }}>1</span>
-						<span className='text' style={{ paddingRight: '0.8em' }}>johnny</span>
-						<span className='text' style={{ paddingRight: '1em' }}>staff</span>
-						<span className='text' style={{ paddingRight: '0.8em' }}>{months[new Date().getMonth()]}</span>
-						<span className='text' style={{ paddingRight: '0.4em' }}>{new Date().getDate()}</span>
-						<span className='text' style={{ paddingRight: '0.4em' }}>{new Date().getHours()}:{new Date().getMinutes()}</span>
-						<span className='text' style={{ fontWeight: 'bold' }}>{`${worksList[project].name}`}</span>
-						<span className='text'>{`.json`}</span>
-					</NavLink>
-				</li>
-			);
-			worksListArray.push(component);
+			if (worksList.hasOwnProperty(project)) {
+				worksListArray.push((
+					<li className='works-list-li' key={project}>
+						<NavLink
+							className='works-list-li-link link'
+							to={`/works/${worksRootIndex}/${project}`}
+						>
+							<span className='text' style={{ paddingRight: '1em' }}>-rw-r--r--</span>
+							<span className='text' style={{ paddingRight: '0.4em' }}>1</span>
+							<span className='text' style={{ paddingRight: '0.8em' }}>johnny</span>
+							<span className='text' style={{ paddingRight: '1em' }}>staff</span>
+							<span className='text' style={{ paddingRight: '0.8em' }}>{MONTHS[new Date().getMonth()]}</span>
+							<span className='text' style={{ paddingRight: '0.4em' }}>{new Date().getDate()}</span>
+							<span className='text'
+										style={{ paddingRight: '0.4em' }}>{new Date().getHours()}:{new Date().getMinutes()}</span>
+							<span className='text' style={{ fontWeight: 'bold' }}>{`${worksList[project].name}`}</span>
+							<span className='text'>{`.json`}</span>
+						</NavLink>
+					</li>
+				));
+			}
 		}
-
 		return worksListArray;
 	};
 

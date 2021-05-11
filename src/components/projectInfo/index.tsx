@@ -1,30 +1,35 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './styles.css';
+import { IWorkObj } from '../../interfaces/IWorkObj';
 
-const ProjectInfo = (props: { details: any }): JSX.Element => {
-	const { details } = props;
+type Props = {
+	details: IWorkObj
+}
 
-	const mapDetails = (): JSX.Element[] => {
-		const arr: any[] = [];
+const ProjectInfo: FC<Props> = (Props): JSX.Element => {
+	const { details } = Props;
 
-		for (const detail in details) {
-			if (details.hasOwnProperty(detail)) {
-				if (detail !== 'description') {
+	const mapDetails = (): (JSX.Element | JSX.Element[])[] => {
+		const arr: (JSX.Element | JSX.Element[])[] = [];
+
+		for (const key in details) {
+			if (details.hasOwnProperty(key)) {
+				if (key !== 'description') {
 					arr.push((
-						<li key={detail} className='project-details-li-item'>
+						<li key={key} className='project-details-li-item'>
 							<span className='text'>
-								{`${detail}: ${details[detail]}`}
+								{`${key}: ${details[key]}`}
 							</span>
 						</li>
 					));
 				} else {
 					const descriptionArray: JSX.Element[] = [];
 
-					details[detail].forEach((desc: string) => {
+					details[key].forEach((desc: string): void => {
 						descriptionArray.push((
 							<li key={desc} className='project-details-li-item'>
 								<span className='text'>
-									{`${detail}: ${desc}`}
+									{`${key}: ${desc}`}
 								</span>
 							</li>
 						));

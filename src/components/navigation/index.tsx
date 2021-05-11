@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { EXPANDED_STATE_KEYS } from '../../assets/constants';
+import { BooleanObj } from '../../types/BooleanObj';
 import './styles.css';
 
-const Navigation = (): JSX.Element => {
-
-	const [expanded, setExpanded] = useState<{ [name: string]: boolean }>({
+const Navigation: FC = (): JSX.Element => {
+	const defaultExpanded: BooleanObj = {
 		works: false,
 		socials: false,
-	});
+	};
+
+	const [expanded, setExpanded] = useState<BooleanObj>(defaultExpanded);
 
 	const handleChangeExpanded = (stateToChange: string): void => {
 		if (stateToChange === EXPANDED_STATE_KEYS.WORKS) {
@@ -19,7 +21,7 @@ const Navigation = (): JSX.Element => {
 	};
 
 	const resetExpandedOnClick = (): void => {
-		setExpanded({ works: false, socials: false });
+		setExpanded(defaultExpanded);
 	};
 
 
