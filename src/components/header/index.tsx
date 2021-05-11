@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
 
-const Header = () => {
+const Header: FC = (): JSX.Element => {
 	return (
 		<div className='name-container'>
 			<NavLink className='link' to='/'>
