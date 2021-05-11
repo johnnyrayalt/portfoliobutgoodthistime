@@ -1,18 +1,32 @@
-import React from 'react';
-import { ART, IMAGE_ROOTS, PROFESSIONAL } from '../../assets/constants';
+import React, { FC } from 'react';
+import { ART, IMAGE_ROOTS, PROFESSIONAL, Schema } from '../../assets/constants';
 import WorksList from '../../components/worksList';
 import './styles.css';
 
-const Works = (props: { worksRootIndex: string }): JSX.Element => {
-	const { worksRootIndex } = props;
+type Props = {
+	worksRootIndex: string
+}
 
-	const handleWorksListSelection = () => {
+const Works: FC<Props> = (Props): JSX.Element => {
+	const { worksRootIndex } = Props;
+
+	const handleWorksListSelection = (): Schema => {
+		let schema: Schema = {} as Schema;
+
 		switch (worksRootIndex) {
 			case IMAGE_ROOTS.art:
-				return ART;
+				schema = ART;
+				break;
 			case IMAGE_ROOTS.professional:
-				return PROFESSIONAL;
+				schema = PROFESSIONAL;
+				break;
 		}
+
+		if (!schema) {
+			throw new Error(`No schema found for ${worksRootIndex}! How'd that happen?`);
+		}
+
+		return schema;
 
 	};
 
