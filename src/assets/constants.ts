@@ -1,4 +1,6 @@
-interface Schema {
+import { StringObj } from '../types/StringObj';
+
+export interface Schema {
 	[name: string]: {
 		key: string;
 		name: string;
@@ -8,12 +10,12 @@ interface Schema {
 	};
 }
 
-export const EXPANDED_STATE_KEYS: { [name: string]: string } = {
+export const EXPANDED_STATE_KEYS: StringObj = {
 	WORKS: 'works',
-	SOCIALS: 'socials'
-}
+	SOCIALS: 'socials',
+};
 
-export const IMAGE_KV: {[name: string]: {[name: string]: string}} = {
+export const IMAGE_KV: { [name: string]: StringObj } = {
 	art: {
 		hapticParadigm: 'haptic_paradigm',
 		alphaDecay: 'alpha_decay',
@@ -22,10 +24,10 @@ export const IMAGE_KV: {[name: string]: {[name: string]: string}} = {
 	professional: {
 		cdkGlobal: 'cdk_gobal',
 		trendCapital: 'trend_capital',
-	}
+	},
 };
 
-export const IMAGE_ROOTS: { [name: string]: string } = {
+export const IMAGE_ROOTS: StringObj = {
 	art: 'art',
 	professional: 'professional',
 };
@@ -79,3 +81,6 @@ export const PROFESSIONAL: Schema = {
 		],
 	},
 };
+
+export const IMAGE_SIZE_DEFAULTS: string[] = ['500', '750', '864'];
+export const MONTHS: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
