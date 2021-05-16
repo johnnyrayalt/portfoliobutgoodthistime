@@ -13,10 +13,23 @@ const Navigation: FC = (): JSX.Element => {
 	const [expanded, setExpanded] = useState<BooleanObj>(defaultExpanded);
 
 	const handleChangeExpanded = (stateToChange: string): void => {
-		if (stateToChange === EXPANDED_STATE_KEYS.WORKS) {
-			!expanded.works ? setExpanded({ works: true }) : setExpanded({ works: false });
-		} else if (stateToChange === EXPANDED_STATE_KEYS.SOCIALS) {
-			!expanded.socials ? setExpanded({ socials: true }) : setExpanded({ socials: false });
+		switch (stateToChange) {
+			case (EXPANDED_STATE_KEYS.WORKS):
+				return !expanded.works ? setExpanded({
+					works: true,
+					socials: expanded.socials,
+				}) : setExpanded({
+					works: false,
+					socials: expanded.socials,
+				});
+			case (EXPANDED_STATE_KEYS.SOCIALS):
+				return !expanded.socials ? setExpanded({
+					socials: true,
+					works: expanded.works,
+				}) : setExpanded({
+					socials: false,
+					works: expanded.works,
+				});
 		}
 	};
 
