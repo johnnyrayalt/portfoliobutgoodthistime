@@ -1,55 +1,63 @@
 import p5 from 'p5';
 import p5Types from 'p5';
-import React, { FC, useState } from 'react';
-import Sketch from 'react-p5';
+import React, { FC, useEffect, useRef } from 'react';
 import { Boundary } from '../../utils/rayCasting/Boundary';
 import { Particle } from '../../utils/rayCasting/Particle';
-import { useViewport } from '../../utils/useViewportHook';
 
 const Processing: FC = (): JSX.Element => {
-	// @ts-ignore
-
-	let { width } = useViewport();
-	let sceneWidth = width;
+	let sceneWidth = window.innerWidth;
 	let sceneHeight = window.innerHeight;
-	const walls: any [] = [];
-	// @ts-ignore
-	const [p, setP5] = useState<p5Types>(new p5());
-	let particle = new Particle(p);
-	const setup = (p: p5): void => {
-		p.createCanvas(sceneWidth, sceneHeight + 40).position(0, -40);
+	const canvasRef = useRef<HTMLDivElement>(null);
 
-		for (let i = 0; i < 5; i++) {
-			const x1 = p.random(sceneWidth);
-			const x2 = p.random(sceneWidth);
-			const y1 = p.random(sceneHeight);
-			const y2 = p.random(sceneHeight);
-			walls[i] = new Boundary(p, x1, x2, y1, y2);
-		}
-		walls.push(new Boundary(p, 0, 0, sceneWidth, 0));
-		walls.push(new Boundary(p, sceneWidth, 0, sceneWidth, sceneHeight));
-		walls.push(new Boundary(p, sceneWidth, sceneHeight, 0, sceneHeight));
-		walls.push(new Boundary(p, 0, sceneHeight, 0, 0));
-		particle = new Particle(p);
+	const Sketch = (p: p5Types): void => {
+		const walls: Boundary[] = [];
+		let particle: Particle;
+
+		p.setup = (): void => {
+			p.createCanvas(sceneWidth, sceneHeight + 40).position(0, -40);
+
+			walls.push(new Boundary(p, 0, 0, sceneWidth, 0));
+			walls.push(new Boundary(p, sceneWidth, 0, sceneWidth, sceneHeight));
+			walls.push(new Boundary(p, sceneWidth, sceneHeight, 0, sceneHeight));
+			walls.push(new Boundary(p, 0, sceneHeight, 0, 0));
+
+			for (let i = 0; i < 5; i++) {
+				const x1: number = p.random(sceneWidth);
+				const x2: number = p.random(sceneWidth);
+				const y1: number = p.random(sceneHeight);
+				const y2: number = p.random(sceneHeight);
+				walls[i] = new Boundary(p, x1, x2, y1, y2);
+			}
+			particle = new Particle(p);
+		};
+
+		p.draw = (): void => {
+			particle.update(p.mouseX, p.mouseY);
+			particle.look(p, walls);
+			particle.show(p);
+
+			/** DEBUGGING PURPOSES */
+			// for (let wall of walls) {
+			// 	wall.show(p);
+			// }
+		};
+
+		p.windowResized = (): void => {
+			p.clear();
+			p.resizeCanvas(window.innerWidth, window.innerHeight);
+		};
 	};
 
-	const draw = (p: p5Types): void => {
-		particle.update(p.mouseX, p.mouseY);
-		particle.look(p, walls);
-		particle.show(p);
-
-		// for (let wall of walls) {
-		// 	wall.show(p)
-		// }
-	};
-
-	const handleResize = (p: p5Types) => {
-		p.resizeCanvas(window.innerWidth, window.innerHeight);
-	};
+	useEffect(() => {
+		// @ts-ignore
+		new p5(Sketch, canvasRef.current);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
-		<Sketch setup={setup} draw={draw} windowResized={handleResize} />
+		<div id='canvasRef' ref={canvasRef} />
 	);
+
 };
 
 export default Processing;
