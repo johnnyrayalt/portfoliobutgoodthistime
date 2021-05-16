@@ -1,3 +1,18 @@
 .project-details-container {
     margin: auto;
+    padding: 10px 30px 10px 30px;
+    max-width: 864px;
+}
+
+.project-details-li-item {
+    padding: 5px 30px;
+}
+
+.text {
+    padding: 5px 0;
+    font-size: 20px;
+}
+
+.brackets {
+    margin-bottom: 20px;
 }

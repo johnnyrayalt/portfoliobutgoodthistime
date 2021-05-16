@@ -28,7 +28,7 @@ code {
   color: coral;
 }
 
-.link {
+.link, .mobile-link {
   text-decoration: none;
   cursor: ne-resize;
 }
