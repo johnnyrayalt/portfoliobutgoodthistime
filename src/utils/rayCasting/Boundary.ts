@@ -12,5 +12,5 @@ export class Boundary {
 	show = (p: p5Types) => {
 		p.stroke(255);
 		p.line(this.a.x, this.a.y, this.b.x, this.b.y);
-	}
+	};
 }
