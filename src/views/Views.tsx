@@ -9,42 +9,40 @@ import Works from './works';
 const Views = (): JSX.Element => {
 
 	return (
-		<div className='test'>
-			<Switch>
-				<Route exact path='/' component={() => <Home />} />
+		<Switch>
+			<Route exact path='/' component={() => <Home />} />
 
-				<Route
-					exact
-					path='/works/art'
-					component={() => <Works worksRootIndex={IMAGE_ROOTS.art} />}
-				/>
+			<Route
+				exact
+				path='/works/art'
+				component={() => <Works worksRootIndex={IMAGE_ROOTS.art} />}
+			/>
 
-				<Route
-					exact
-					path='/works/professional'
-					component={() => <Works worksRootIndex={IMAGE_ROOTS.professional} />}
-				/>
+			<Route
+				exact
+				path='/works/professional'
+				component={() => <Works worksRootIndex={IMAGE_ROOTS.professional} />}
+			/>
 
-				<Route
-					exact
-					path='/works/art/:id'
-					component={() => <ProjectPage root={IMAGE_ROOTS.art} />}
-				/>
+			<Route
+				exact
+				path='/works/art/:id'
+				component={() => <ProjectPage root={IMAGE_ROOTS.art} />}
+			/>
 
-				<Route
-					exact
-					path='/works/professional/:id'
-					component={() => <ProjectPage root={IMAGE_ROOTS.professional} />}
-				/>
+			<Route
+				exact
+				path='/works/professional/:id'
+				component={() => <ProjectPage root={IMAGE_ROOTS.professional} />}
+			/>
 
-				<Route
-					exact
-					path='/about'
-					component={() => <About />}
-				/>
+			<Route
+				exact
+				path='/about'
+				component={() => <About />}
+			/>
 
-			</Switch>
-		</div>
+		</Switch>
 	);
 };
 
