@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import './styles.css';
 import { IWorkObj } from '../../interfaces/IWorkObj';
+import './styles.css';
 
 type Props = {
 	details: IWorkObj
@@ -44,11 +44,11 @@ const ProjectInfo: FC<Props> = (Props): JSX.Element => {
 
 	return (
 		<div className='project-details-container'>
-			<span className='text'>{'{'}</span>
+			<span className='text brackets'>{'{'}</span>
 			<ul>
 				{mapDetails()}
 			</ul>
-			<span className='text'>{'}'}</span>
+			<span className='text brackets'>{'}'}</span>
 		</div>
 	);
 };
