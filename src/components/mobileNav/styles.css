@@ -23,9 +23,16 @@
 }
 
 .mobile-link, .mobile-btn {
+    font-family: 'Source Code Pro', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-size: 25px;
-    color: white;
     padding: 0;
+    color: white;
+    border: none;
+    background-color: transparent;
+}
+
+.mobile-btn:hover {
+    color: coral;
 }
 
 /* Main Nav */
