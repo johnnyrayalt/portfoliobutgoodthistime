@@ -11,6 +11,7 @@ export interface Schema {
 }
 
 export const EXPANDED_STATE_KEYS: StringObj = {
+	MAIN: 'main',
 	WORKS: 'works',
 	SOCIALS: 'socials',
 };
