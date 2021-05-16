@@ -132,7 +132,7 @@ const MobileNav: FC = (): JSX.Element => {
 				className={`mobile-navigation-links-container ${!expanded.main ? 'mobile-closed-nav' : 'mobile-open-nav'}`}>
 				<nav>
 					<button onClick={() => handleChangeExpanded(EXPANDED_STATE_KEYS.MAIN)}
-									className='mobile-main-nav-btn mobile-link btn mobile-btn'>
+									className='mobile-main-nav-btn mobile-link mobile-btn'>
 						<div style={{ height: '60px', width: '100%', margin: 'auto 0', padding: '0' }} onClick={handleOpenClose}>
 							<EyeSvg />
 						</div>
@@ -143,7 +143,7 @@ const MobileNav: FC = (): JSX.Element => {
 								<li className='mobile-nav-li'>
 									<div className='mobile-link'>
 										<button onClick={() => handleChangeExpanded(EXPANDED_STATE_KEYS.WORKS)}
-														className='mobile-link btn mobile-btn'>
+														className='mobile-link mobile-btn'>
 											.works(↳)
 										</button>
 
@@ -172,13 +172,13 @@ const MobileNav: FC = (): JSX.Element => {
 									)}
 								</li>
 								<li className='mobile-nav-li'>
-									<NavLink className='mobile-link' to='/about'>
+									<NavLink onClick={() => resetExpandedOnClick()} className='mobile-link' to='/about'>
 										.about()
 									</NavLink>
 								</li>
 								<li className='mobile-nav-li'>
 									<button onClick={() => handleChangeExpanded(EXPANDED_STATE_KEYS.SOCIALS)}
-													className='mobile-link mobile-btn btn'>
+													className='mobile-link mobile-btn'>
 										.contacts(↳)
 									</button>
 									{expanded.socials && (
