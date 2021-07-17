@@ -1,7 +1,7 @@
-import React from 'react';
-import './App.css';
-import MastHead from './components/mastHead';
-import Views from './views/Views';
+import MastHead from './components/mastHead'
+import React from 'react'
+import Views from './views/Views'
+import './App.css'
 
 const App = (): JSX.Element => {
 
@@ -12,7 +12,7 @@ const App = (): JSX.Element => {
 				<Views />
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default App;
+export default App

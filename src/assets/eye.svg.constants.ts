@@ -1,15 +1,15 @@
-import { StringObj } from '../types/StringObj';
+import { StringObj } from '../types/StringObj'
 
 export const topLid: StringObj = {
 	id: '#topLid',
 	start: 'M240,300.3c36-38.3,88.3-37.3,120,0',
 	end: 'M240,300c36,38.3,88.3,37.3,120,0',
-};
+}
 
 export const eyeColor: StringObj = {
 	white: 'white',
 	coral: 'coral',
-};
+}
 
 export const lashGroups: { [name: string]: { [name: string]: StringObj } } = {
 	lashOne: {
@@ -62,4 +62,4 @@ export const lashGroups: { [name: string]: { [name: string]: StringObj } } = {
 			end: '339',
 		},
 	},
-};
+}

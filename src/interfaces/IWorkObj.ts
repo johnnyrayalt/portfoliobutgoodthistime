@@ -1,8 +1,10 @@
 export interface IWorkObj {
-	[name: string]: string | undefined | string[];
+	[name: string]: string | undefined | string[] | boolean;
 	key: string;
 	name: string;
 	year: string;
-	link?: string | undefined;
+	link?: string;
 	description: string[];
+	altText: string;
+	hasImages: boolean;
 }

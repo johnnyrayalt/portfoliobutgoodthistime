@@ -1,30 +1,41 @@
-import React, { FC } from 'react';
-import { topLid } from '../../assets/eye.svg.constants';
-import './styles.css';
+import React, { FC } from 'react'
+import { topLid } from '../../assets/eye.svg.constants'
+import './styles.css'
 
 const EyeSvg: FC = (): JSX.Element => {
 
 	return (
-		<svg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 235 600 135'
-				 preserveAspectRatio='xMidYMid meet'>
+		<svg
+			version='1.1'
+			xmlns='http://www.w3.org/2000/svg'
+			viewBox='0 235 600 135'
+			preserveAspectRatio='xMidYMid meet'
+		>
 			<g id='wholeEyeGroup'>
 				<g id='eyeballGroup' opacity='1'>
 					<g id='pupilIrisGroup'>
 						<circle id='iris' fill='none' stroke='#FFFFFF' strokeWidth='2' strokeMiterlimit='10' cx='303'
-										cy='301' r='17' />
+							cy='301' r='17' />
 						<circle id='pupil' fill='#FFFFFF' cx='303' cy='301' r='9.1' />
 					</g>
 				</g>
 				<line id='flatLid' fill='none' stroke='none' strokeWidth='10' strokeLinecap='round'
-							strokeLinejoin='round' strokeMiterlimit='10' x1='240' y1='300' x2='360' y2='300' />
+					strokeLinejoin='round' strokeMiterlimit='10' x1='240' y1='300' x2='360' y2='300' />
 
 				<path id='botLid' fill='none' stroke='#FFFFFF' strokeWidth='10' strokeLinecap='round'
-							strokeLinejoin='round' strokeMiterlimit='10' d={topLid.end} />
+					strokeLinejoin='round' strokeMiterlimit='10' d={topLid.end} />
 				<path id='topLid' fill='none' stroke='#FFFFFF' strokeWidth='10' strokeLinecap='round'
-							strokeLinejoin='round' strokeMiterlimit='10' d={topLid.start} />
+					strokeLinejoin='round' strokeMiterlimit='10' d={topLid.start} />
 
-				<g id='lashGroup' opacity='1' stroke='#FFFFFF' strokeWidth='10' strokeLinecap='round'
-					 strokeLinejoin='round' strokeMiterlimit='10'>
+				<g
+					id='lashGroup'
+					opacity='1'
+					stroke='#FFFFFF'
+					strokeWidth='10'
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					strokeMiterlimit='10'
+				>
 
 					<line id='lashOne' x1='238.8' y1='277.5' x2='230' y2='268' />
 
@@ -38,7 +49,7 @@ const EyeSvg: FC = (): JSX.Element => {
 				</g>
 			</g>
 		</svg>
-	);
-};
+	)
+}
 
-export default EyeSvg;
+export default EyeSvg

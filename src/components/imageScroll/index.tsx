@@ -1,26 +1,27 @@
-import React, { FC } from 'react';
-import { IMAGE_SIZE_DEFAULTS } from '../../assets/constants';
-import { IImageList } from '../../interfaces/IImageList';
-import { StringObj } from '../../types/StringObj';
-import './styles.css';
+import React, { FC } from 'react'
+import { IImageList } from '../../interfaces/IImageList'
+import { IMAGE_SIZE_DEFAULTS } from '../../assets/constants'
+import { StringObj } from '../../types/StringObj'
+import './styles.css'
 
-type Props = {
+interface Props {
 	imageList: IImageList[],
-	defaultSize: string
+	defaultSize: string,
+	altText: string | string[],
 }
 
 const ImageScroll: FC<Props> = (Props): JSX.Element => {
-	const { imageList, defaultSize } = Props;
+	const { imageList, defaultSize, altText } = Props
 
 	const mapImages = (): JSX.Element[] => {
 		return imageList.map((image: IImageList): JSX.Element => {
-			const sizes: string[] = IMAGE_SIZE_DEFAULTS;
-			const returnObj: StringObj = {};
-			let returnString: string = '';
+			const sizes: string[] = IMAGE_SIZE_DEFAULTS
+			const returnObj: StringObj = {}
+			let returnString: string = ''
 
-			for (let size of sizes) {
-				returnObj[size] = image.url.replace(defaultSize, size);
-				returnString += ` ${returnObj[size]} ${size}w,`;
+			for (const size of sizes) {
+				const url = image.url.replace(defaultSize, size)
+				returnString += ` ${url} ${size}w,`
 			}
 
 			return (
@@ -28,11 +29,11 @@ const ImageScroll: FC<Props> = (Props): JSX.Element => {
 					<img
 						className='image'
 						srcSet={returnString.trimLeft().slice(0, -1)}
-						alt={''} />
+						alt={altText as string} />
 				</li>
-			);
-		});
-	};
+			)
+		})
+	}
 
 	return (
 		<div className='image-scroll-container'>
@@ -40,7 +41,7 @@ const ImageScroll: FC<Props> = (Props): JSX.Element => {
 				{mapImages()}
 			</ul>
 		</div>
-	);
-};
+	)
+}
 
-export default ImageScroll;
+export default ImageScroll

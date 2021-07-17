@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
+import './styles.css'
 
 const About: FC = (): JSX.Element => {
 
@@ -16,7 +17,7 @@ const About: FC = (): JSX.Element => {
 				</div>
 			</div>
 		</>
-	);
-};
+	)
+}
 
-export default About;
+export default About

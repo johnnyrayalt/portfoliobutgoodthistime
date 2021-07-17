@@ -1,42 +1,41 @@
-import React, { FC, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { EXPANDED_STATE_KEYS } from '../../assets/constants';
-import { BooleanObj } from '../../types/BooleanObj';
-import './styles.css';
+import React, { FC, useState } from 'react'
+import { BooleanObj } from '../../types/BooleanObj'
+import { EXPANDED_STATE_KEYS } from '../../assets/constants'
+import { NavLink } from 'react-router-dom'
+import './styles.css'
 
 const Navigation: FC = (): JSX.Element => {
 	const defaultExpanded: BooleanObj = {
 		works: false,
 		socials: false,
-	};
+	}
 
-	const [expanded, setExpanded] = useState<BooleanObj>(defaultExpanded);
+	const [expanded, setExpanded] = useState<BooleanObj>(defaultExpanded)
 
 	const handleChangeExpanded = (stateToChange: string): void => {
 		switch (stateToChange) {
-			case (EXPANDED_STATE_KEYS.WORKS):
-				return !expanded.works ? setExpanded({
-					works: true,
-					socials: expanded.socials,
-				}) : setExpanded({
-					works: false,
-					socials: expanded.socials,
-				});
-			case (EXPANDED_STATE_KEYS.SOCIALS):
-				return !expanded.socials ? setExpanded({
-					socials: true,
-					works: expanded.works,
-				}) : setExpanded({
-					socials: false,
-					works: expanded.works,
-				});
+		case (EXPANDED_STATE_KEYS.WORKS):
+			return !expanded.works ? setExpanded({
+				works: true,
+				socials: expanded.socials,
+			}) : setExpanded({
+				works: false,
+				socials: expanded.socials,
+			})
+		case (EXPANDED_STATE_KEYS.SOCIALS):
+			return !expanded.socials ? setExpanded({
+				socials: true,
+				works: expanded.works,
+			}) : setExpanded({
+				socials: false,
+				works: expanded.works,
+			})
 		}
-	};
+	}
 
 	const resetExpandedOnClick = (): void => {
-		setExpanded(defaultExpanded);
-	};
-
+		setExpanded(defaultExpanded)
+	}
 
 	return (
 		<div id='navigation-container'>
@@ -113,7 +112,7 @@ const Navigation: FC = (): JSX.Element => {
 				</nav>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default Navigation;
+export default Navigation

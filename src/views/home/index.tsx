@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import Processing from '../../components/processing';
-import './styles.css';
+import Processing from '../../components/processing'
+import React, { FC } from 'react'
+import './styles.css'
 
 const Home: FC = (): JSX.Element => {
 
@@ -10,7 +10,7 @@ const Home: FC = (): JSX.Element => {
 				<Processing />
 			</div>
 		</>
-	);
-};
+	)
+}
 
-export default Home;
+export default Home

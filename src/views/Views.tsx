@@ -1,10 +1,10 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { IMAGE_ROOTS } from '../assets/constants';
-import About from './about';
-import Home from './home';
-import ProjectPage from './projectPage';
-import Works from './works';
+import About from './about'
+import Home from './home'
+import ProjectPage from './projectPage'
+import React from 'react'
+import Works from './works'
+import { IMAGE_ROOTS } from '../assets/constants'
+import { Route, Switch } from 'react-router-dom'
 
 const Views = (): JSX.Element => {
 
@@ -43,7 +43,7 @@ const Views = (): JSX.Element => {
 			/>
 
 		</Switch>
-	);
-};
+	)
+}
 
-export default Views;
+export default Views
